@@ -10,10 +10,13 @@ namespace DebtDestroyer.DataAccess
     {
         public ICustomerDataService _CustomerData;
         public IAccountDataService _AccountsData;
+        private int _CustomerId;
+        private int _AccountId;
+        
 
         public void stuff()
         {
-            //TODO: to be implemented
+            
         }
     }
 }

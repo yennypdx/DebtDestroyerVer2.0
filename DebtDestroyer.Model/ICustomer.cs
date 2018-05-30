@@ -10,5 +10,7 @@ namespace DebtDestroyer.Model
         string _Password { get; set; }
         decimal _AllocatedFund { get; set; }
         ICollection<Account> _AccountList { get; set; }
+       
+
     }
 }

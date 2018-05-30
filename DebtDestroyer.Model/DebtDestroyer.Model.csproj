@@ -44,6 +44,7 @@
     <Compile Include="Customer.cs" />
     <Compile Include="IAccount.cs" />
     <Compile Include="ICustomer.cs" />
+    <Compile Include="IPayoff.cs" />
     <Compile Include="Payoff.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
