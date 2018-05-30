@@ -1,0 +1,6 @@
+C:\Users\tcape\source\repos\DebtDestroyerVer2\DebtDestroyer.Model\bin\Debug\DebtDestroyer.Model.dll
+C:\Users\tcape\source\repos\DebtDestroyerVer2\DebtDestroyer.Model\bin\Debug\DebtDestroyer.Model.pdb
+C:\Users\tcape\source\repos\DebtDestroyerVer2\DebtDestroyer.Model\obj\Debug\DebtDestroyer.Model.csprojAssemblyReference.cache
+C:\Users\tcape\source\repos\DebtDestroyerVer2\DebtDestroyer.Model\obj\Debug\DebtDestroyer.Model.csproj.CoreCompileInputs.cache
+C:\Users\tcape\source\repos\DebtDestroyerVer2\DebtDestroyer.Model\obj\Debug\DebtDestroyer.Model.dll
+C:\Users\tcape\source\repos\DebtDestroyerVer2\DebtDestroyer.Model\obj\Debug\DebtDestroyer.Model.pdb

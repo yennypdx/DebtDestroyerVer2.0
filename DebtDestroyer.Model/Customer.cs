@@ -10,6 +10,13 @@ namespace DebtDestroyer.Model
         public string _Password { get; set; }
         public decimal _AllocatedFund { get; set; }
         public ICollection<Account> _AccountList { get; set; }
+        //public IPayoff _Payoff { get; set; }
+        
+
+         
+
+         
+
 
         public override bool Equals(object obj)
         {

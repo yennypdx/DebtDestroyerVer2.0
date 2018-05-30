@@ -48,7 +48,9 @@
     <Compile Include="CustomerDataService.cs" />
     <Compile Include="IAccountDataService.cs" />
     <Compile Include="ICustomerDataService.cs" />
+    <Compile Include="IPayoff.cs" />
     <Compile Include="IPayoffDataService.cs" />
+    <Compile Include="Payoff.cs" />
     <Compile Include="PayoffDataService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

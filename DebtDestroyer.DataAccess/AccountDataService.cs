@@ -61,7 +61,7 @@ namespace DebtDestroyer.DataAccess
             throw new NotImplementedException();
         }
 
-        public bool EditAccount(Account target) //Method for each Account Field to Edit?
+        public bool EditAccount(Account target)
         {
             var accounts = ReadFromFile();
             var editAccount = accounts.SingleOrDefault(a => a._AccountId.Equals(target._AccountId));
@@ -96,6 +96,13 @@ namespace DebtDestroyer.DataAccess
         public Account FindByName(string accountName)
         {
             return FindAll().SingleOrDefault(account => account._Name.Equals(accountName));
+        }
+
+        public IEnumerable<IAccount> FindAllByCustomerId(int customerId)
+        {
+            
+            return FindAll().Where(account => account._CustomerId.Equals(customerId));
+
         }
 
         public IList<Account> PrioritySort(IList<Account> accounts)
