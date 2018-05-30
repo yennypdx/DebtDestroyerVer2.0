@@ -5,6 +5,7 @@ namespace DebtDestroyer.DataAccess
 {
     public interface ICustomerDataService
     {
+        //ICustomer GetCustomerById(int customerID);
         void AddNewCustomer(Customer newCustomer);
         void DeleteExistingCustomer(int customerId);
         void EditCustomer(Customer customer);

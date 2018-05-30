@@ -54,6 +54,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="UnitOfWork.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -101,6 +102,10 @@
     <ProjectReference Include="..\DebtDestroyer.Model\DebtDestroyer.Model.csproj">
       <Project>{eae94515-8671-43b7-9dd9-9bf7815d7522}</Project>
       <Name>DebtDestroyer.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DebtDestroyer.UnitOfWork\DebtDestroyer.UnitOfWork.csproj">
+      <Project>{603A6FE1-2709-4A25-95B4-9CCACBADE28B}</Project>
+      <Name>DebtDestroyer.UnitOfWork</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
