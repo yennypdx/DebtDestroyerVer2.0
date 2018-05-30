@@ -41,7 +41,6 @@ namespace DebtDestroyer.DataAccess
                 {
                     new Account
                     {
-                        //TODO: Fill out this!
                          _AccountId = 1,
                          _CustomerId = 1,
                          _Name = "Wells Fargo",
@@ -52,6 +51,13 @@ namespace DebtDestroyer.DataAccess
             }
             var json = File.ReadAllText(AccStorage);
             return JsonConvert.DeserializeObject<List<Account>>(json);
+        }
+
+        public ICustomer GetCustomerById(int customerID)
+        {
+             var ICustomer = ReadFromCustomerDb();
+
+             return ICustomer.SingleOrDefault(customer => customer._CustomerId.Equals(customerID));
         }
 
         public void UpdateCustomer(Customer customer)
@@ -118,7 +124,7 @@ namespace DebtDestroyer.DataAccess
             throw new NotImplementedException();
         }
 
-        public int GetCustomerId(string customerName)
+        public int GetCustomerByName(string customerName)
         {
             var customers = ReadFromCustomerDb();
             var existingCustId = 1;
