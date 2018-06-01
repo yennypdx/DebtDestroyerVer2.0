@@ -12,12 +12,6 @@ namespace DebtDestroyer.Model
         public ICollection<Account> _AccountList { get; set; }
         //public IPayoff _Payoff { get; set; }
         
-
-         
-
-         
-
-
         public override bool Equals(object obj)
         {
             var customer = obj as Customer;
