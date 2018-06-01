@@ -8,6 +8,6 @@ namespace DebtDestroyer.Model
 {
     public interface IPayoff
     {
-        void Generate();
+        IEnumerable<string> Generate();
     }
 }

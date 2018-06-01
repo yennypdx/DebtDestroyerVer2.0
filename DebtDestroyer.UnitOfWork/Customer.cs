@@ -13,11 +13,6 @@ namespace DebtDestroyer.UnitOfWork
         //public IPayoff _Payoff { get; set; }
         private IUnitOfWork data { get; set; }
 
-         
-
-         
-
-
         public override bool Equals(object obj)
         {
             var customer = obj as Customer;

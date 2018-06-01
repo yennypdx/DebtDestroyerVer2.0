@@ -8,6 +8,6 @@ namespace DebtDestroyer.UnitOfWork
 {
     public interface IPayoff
     {
-        void Generate();
+        IList<DebtDestroyer.Model.Payment> Generate();
     }
 }

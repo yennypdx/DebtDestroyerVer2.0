@@ -24,7 +24,7 @@ namespace DebtDestroyer.Model
             _AllocatedFunds = customer._AllocatedFund;
             _Accounts = customer._AccountList;
         }
-        
+
         public Payoff(int customerId, int allocatedFunds, IEnumerable<IAccount> accounts)
         {
             _CustomerId = customerId;
@@ -94,7 +94,7 @@ namespace DebtDestroyer.Model
 
         public void ResetPayments()
         {
-            foreach(var account in _Accounts)
+            foreach (var account in _Accounts)
             {
                 account._Payment = 0.00m;
             }
@@ -142,7 +142,7 @@ namespace DebtDestroyer.Model
                     allocated -= payment;
                     account._Balance -= payment;
                 }
-                
+
             }
 
             if (allocated > 0.00m)
@@ -153,13 +153,6 @@ namespace DebtDestroyer.Model
 
                 }
             }
-
-
-
-
-            
         }
-
-  
     }
 }

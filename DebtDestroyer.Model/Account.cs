@@ -31,7 +31,6 @@ namespace DebtDestroyer.Model
                    _Apr == account._Apr &&
                    _Balance == account._Balance &&
                    _MinPay == account._MinPay;
-                   
         }
 
         public override int GetHashCode()

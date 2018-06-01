@@ -150,16 +150,15 @@ namespace DebtDestroyer.Model
                 PrioretySort();
                 foreach (var account in _Accounts)
                 {
-
+                    if (account._Balance >= allocated)
+                    {
+                        account._Payment += allocated;
+                        totalPaid += allocated;
+                        account._Balance -= allocated;
+                        break;
+                    }
                 }
             }
-
-
-
-
-
         }
-
-
     }
 }
