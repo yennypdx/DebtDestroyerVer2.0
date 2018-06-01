@@ -19,7 +19,6 @@ namespace DebtDestroyer.DataAccess
             if (!File.Exists(AccountStorageFile))
             {
                 //Create dummy List<Account>
-
             }
 
             var json = File.ReadAllText(AccountStorageFile);

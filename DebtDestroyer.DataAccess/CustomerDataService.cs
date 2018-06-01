@@ -72,7 +72,7 @@ namespace DebtDestroyer.DataAccess
             SaveToStorage(customers);
         }
 
-        public void InsertCustomer(Customer customer)
+        private void InsertCustomer(Customer customer)
         {
             var customers = ReadFromCustomerDb();
             var maxCustId = customers.Count == 0 ? 0 : customers.Max(f => f._CustomerId);
@@ -82,7 +82,7 @@ namespace DebtDestroyer.DataAccess
             SaveToStorage(customers);
         }
 
-        public void SaveToStorage(IList<Customer> customer)
+        private void SaveToStorage(IList<Customer> customer)
         {
             var json = JsonConvert.SerializeObject(customer, Formatting.Indented);
             File.WriteAllText(CustStorage, json);
@@ -112,19 +112,25 @@ namespace DebtDestroyer.DataAccess
 
         public ICollection<Account> GetAccounts(int customerId)
         {
-            //Note: This method need access to the account database
-            throw new NotImplementedException();
-        }
-        public void EditCustomer(Customer customer)
-        {
-            throw new NotImplementedException();
-        }
-        public void GetAllocatedFunds(Customer customer)
-        {
-            throw new NotImplementedException();
+            var customerAcc = ReadFromAccountDb();
+            List<Account> AccountListOfOneCustomer = new List<Account>();
+
+            foreach(var accId in customerAcc)
+            {
+                if(accId._CustomerId == customerId)
+                {
+                    AccountListOfOneCustomer.Add(accId);
+                }
+            }
+            return AccountListOfOneCustomer;
         }
 
-        public int GetCustomerByName(string customerName)
+        public decimal GetAllocatedFunds(Customer customer)
+        {
+            return customer._AllocatedFund;
+        }
+
+        public int GetCustomerIdByName(string customerName)
         {
             var customers = ReadFromCustomerDb();
             var existingCustId = 1;
