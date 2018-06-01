@@ -13,6 +13,6 @@ namespace DebtDestroyer.DataAccess
         Account FindByID(int accountID);
         Account FindByName(string accountName);
         IEnumerable<IAccount> FindAllByCustomerId(int customerId);
-        IList<Account> PrioritySort(IList<Account> accounts);
+        //IList<Account> PrioritySort(IList<Account> accounts);
     }
 }

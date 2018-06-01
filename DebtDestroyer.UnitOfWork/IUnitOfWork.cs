@@ -9,18 +9,18 @@ namespace DebtDestroyer.UnitOfWork
 {
     public interface IUnitOfWork
     {
-        ICustomerDataService customerService { get; set; }
-        IAccountDataService accountService { get; set; }
+        ICustomerDataService _CustomerService { get; set; }
+        IAccountDataService _AccountService { get; set; }
 
     }
 
-    public class UnitOfWork : IUnitOfWork
-    {
-        public ICustomerDataService customerService { get; set; }
-        public IAccountDataService accountService { get; set; }
+    //public class UnitOfWork : IUnitOfWork
+    //{
+    //    public ICustomerDataService _CustomerService { get; set; }
+    //    public IAccountDataService _AccountService { get; set; }
 
 
-        public Model.Customer
+    //    public Model.Customer
 
-    }
+    //}
 }

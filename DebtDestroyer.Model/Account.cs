@@ -11,11 +11,8 @@ namespace DebtDestroyer.Model
         public float _Apr { get; set; }
         public decimal _Balance { get; set; }
         public decimal _MinPay { get; set; }
-        public decimal _Payment { get; set; } //TODO: needs to be calclulated in payoff, updated after every payment
-        public decimal _AvailCredit { get; set; } //optional
-        public decimal _OneTimePay { get; set; } //optional
-        public decimal _NextPayment { get; set; } //TODO: needs to be calculated in payoff
-        public decimal DailyInterest() // this also needs to be caluculated in payoff, changes after every payment
+        public decimal _Payment { get; set; } 
+        public decimal DailyInterest()
         {
             float balance = (float)_Balance;
             return (decimal)(_Apr / 365 * balance);
@@ -54,9 +51,7 @@ namespace DebtDestroyer.Model
             builder.Append("Name: " + _Name);
             builder.Append("Balance: " + _Balance);
             builder.Append("MinPay: " + _MinPay);
-            builder.Append("AvailableCredit: " + _AvailCredit);
-            builder.Append("OneTimePay: " + _OneTimePay);
-            builder.Append("NextPayment: " + _NextPayment);
+            
             return builder.ToString();
         }
     }

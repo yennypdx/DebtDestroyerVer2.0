@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebtDestroyer.UITests", "De
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebtDestroyer.UnitOfWork", "DebtDestroyer.UnitOfWork\DebtDestroyer.UnitOfWork.csproj", "{603A6FE1-2709-4A25-95B4-9CCACBADE28B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebtDestroyer.DataAccessTests", "DebtDestroyer.DataAccessTests\DebtDestroyer.DataAccessTests.csproj", "{B8A672BE-1787-4089-861C-094341A68532}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{603A6FE1-2709-4A25-95B4-9CCACBADE28B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{603A6FE1-2709-4A25-95B4-9CCACBADE28B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{603A6FE1-2709-4A25-95B4-9CCACBADE28B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8A672BE-1787-4089-861C-094341A68532}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8A672BE-1787-4089-861C-094341A68532}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8A672BE-1787-4089-861C-094341A68532}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8A672BE-1787-4089-861C-094341A68532}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
