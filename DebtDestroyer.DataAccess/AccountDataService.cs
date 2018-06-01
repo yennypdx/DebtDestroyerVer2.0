@@ -105,9 +105,9 @@ namespace DebtDestroyer.DataAccess
 
         }
 
-        public IList<Account> PrioritySort(IList<Account> accounts)
-        {
-            return FindAll().ToList().OrderByDescending(a => a.DailyInterest()).ToList();
-        }
+        //public IList<Account> PrioritySort(IList<Account> accounts)
+        //{
+        //    return FindAll().ToList().OrderByDescending(a => a.DailyInterest()).ToList();
+        //}
     }
 }

@@ -10,13 +10,17 @@ namespace DebtDestroyer.DataAccess
     {
         public ICustomerDataService _CustomerData;
         public IAccountDataService _AccountsData;
-        private int _CustomerId;
-        private int _AccountId;
-        
+        //private int _CustomerId;
+        //private int _AccountId;
+
+        public void SaveToFile(IEnumerable<string> payoff)
+        {
+            throw new NotImplementedException();
+        }
 
         public void stuff()
         {
-            
+
         }
     }
 }

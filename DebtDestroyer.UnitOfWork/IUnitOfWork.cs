@@ -11,16 +11,12 @@ namespace DebtDestroyer.UnitOfWork
     {
         ICustomerDataService customerService { get; set; }
         IAccountDataService accountService { get; set; }
-
+        IEnumerable<DebtDestroyer.Model.IAccount> getCustomerAccounts(int customerID);
     }
 
-    public class UnitOfWork : IUnitOfWork
-    {
-        public ICustomerDataService customerService { get; set; }
-        public IAccountDataService accountService { get; set; }
-
-
-        public Model.Customer
-
-    }
+    //public class UnitOfWork : IUnitOfWork
+    //{
+    //    public ICustomerDataService _CustomerService { get; set; }
+    //    public IAccountDataService _AccountService { get; set; }
+    // }
 }

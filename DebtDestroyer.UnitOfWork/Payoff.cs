@@ -10,14 +10,13 @@ namespace DebtDestroyer.UnitOfWork
 {
     public class Payoff
     {
-        private ICustomer _Customer { get; set; }
+        //private ICustomer _Customer { get; set; }
         private int _CustomerId { get; set; }
         private decimal _AllocatedFunds { get; set; }
         private IEnumerable<IAccount> _Accounts { get; set; }
-        private UnitOfWork _UnitOfWork { get; set; }
+        private IUnitOfWork _UnitOfWork { get; set; }
 
         //private IAccountDataService accountDataService { get; set; }
-
         //private IPayoffDataService payoffDataService { get; set; }
 
         public Payoff(ICustomer customer)
@@ -43,7 +42,7 @@ namespace DebtDestroyer.UnitOfWork
 
         public IEnumerable<DebtDestroyer.Model.IAccount> GetAccounts()
         {
-            return _UnitOfWork.accountService.FindAllByCustomerId(_CustomerId);                            
+            return _UnitOfWork.accountService.FindAllByCustomerId(_CustomerId);
         }
 
         public void PrioretySort()
@@ -90,7 +89,7 @@ namespace DebtDestroyer.UnitOfWork
         {
             foreach (var account in _Accounts)
             {
-                account._Balance += account.DailyInterest() * 30;
+                account._Balance += account.DailyInterest() * 30.42m;
             }
         }
 
@@ -109,6 +108,8 @@ namespace DebtDestroyer.UnitOfWork
             if (_AllocatedFunds < TotalMinimumPayments())
                 throw new Exception("Insufficient Funds");
 
+            ApplyAllAccrued();
+
             PrioretySort();
 
             ResetPayments();
@@ -124,46 +125,91 @@ namespace DebtDestroyer.UnitOfWork
             foreach (var account in _Accounts)
             {
                 var payment = account._Payment = account.DailyInterest() / totalDaily * _AllocatedFunds;
-
-                if (payment < account._MinPay)
+                // must make at least minimum payment
+                if (payment < account._MinPay) 
                 {
                     payment = account._MinPay;
                 }
-
-                if (payment >= account._Balance)
+                // payment more than balance? Just payoff the balance
+                if (payment >= account._Balance) 
                 {
                     account._Payment = account._Balance;
                     totalPaid += account._Balance;
                     allocated -= account._Balance;
                     account._Balance = 0.00m;
                 }
-                else
+                else // otherwise, make the payment
                 {
                     account._Payment = payment;
                     totalPaid += payment;
                     allocated -= payment;
                     account._Balance -= payment;
+
                 }
 
             }
-
-            if (allocated > 0.00m)
+            // if any money is left over, pay it to the first account that has at least that much balance
+            if (allocated > 0.00m) 
             {
                 PrioretySort();
                 foreach (var account in _Accounts)
                 {
-                    //finishing
+                    if (account._Balance >= allocated)
+                    {
+                        account._Payment += allocated;
+                        totalPaid += allocated;
+                        account._Balance -= allocated;
+                        break;
+                    }
                 }
             }
-
-
-
-
-
         }
 
-        //More to do
+        public IList<DebtDestroyer.Model.Payment> Generate()
+        {
+            var payments = new List<DebtDestroyer.Model.Payment>();
+            var done = false;
+            int month = 0;
 
+            foreach (var account in _Accounts)
+            {
+                payments.Add(new Model.Payment
+                {
+                    _Month = month,
+                    _CustomerId = account._CustomerId,
+                    _AccountId = account._AccountId,
+                    _AccountName = account._Name,
+                    _Balance = account._Balance,
+                    _Payment = account._Payment,
+                    _DailyInterest = account.DailyInterest()
+                });
+            }
 
+            while (!done)
+            {
+                month++;
+                Update();
+                foreach (var account in _Accounts)
+                {
+                    payments.Add(new Model.Payment
+                    {
+                        _Month = month,
+                        _CustomerId = account._CustomerId,
+                        _AccountId = account._AccountId,
+                        _AccountName = account._Name,
+                        _Balance = account._Balance,
+                        _Payment = account._Payment,
+                        _DailyInterest = account.DailyInterest()
+                    });
+                }
+                _Accounts.ToList().OrderByDescending(a => a._Balance).ToList();
+                if (_Accounts.First()._Balance == 0.00m)
+                {
+                    done = true;
+                }
+
+            }
+            return payments;
+        }
     }
 }
