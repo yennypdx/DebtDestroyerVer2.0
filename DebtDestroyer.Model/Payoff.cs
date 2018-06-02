@@ -7,7 +7,7 @@ using DebtDestroyer;
 
 namespace DebtDestroyer.Model
 {
-    public class Payoff
+    public class Payoff : IPayoff
     {
         private ICustomer _Customer { get; set; }
         private int _CustomerId { get; set; }

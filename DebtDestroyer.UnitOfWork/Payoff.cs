@@ -8,7 +8,7 @@ using DebtDestroyer.DataAccess;
 
 namespace DebtDestroyer.UnitOfWork
 {
-    public class Payoff
+    public class Payoff : IPayoff
     {
         //private ICustomer _Customer { get; set; }
         private int _CustomerId { get; set; }
