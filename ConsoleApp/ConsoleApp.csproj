@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{21706B47-5E70-415C-85B4-D74BE97E08C1}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DebtDestroyer.DataAccess</RootNamespace>
-    <AssemblyName>DebtDestroyer.DataAccess</AssemblyName>
+    <ProjectGuid>{BD34FA73-00F3-463F-A516-7C98904753CC}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ConsoleApp</RootNamespace>
+    <AssemblyName>ConsoleApp</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -30,9 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,28 +42,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountDataService.cs" />
-    <Compile Include="CustomerDataService.cs" />
-    <Compile Include="IAccountDataService.cs" />
-    <Compile Include="ICustomerDataService.cs" />
-    <Compile Include="IPayoffDataService.cs" />
-    <Compile Include="PayoffDataService.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DebtDestroyer.DataAccess\DebtDestroyer.DataAccess.csproj">
+      <Project>{21706b47-5e70-415c-85b4-d74be97e08c1}</Project>
+      <Name>DebtDestroyer.DataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DebtDestroyer.Model\DebtDestroyer.Model.csproj">
       <Project>{eae94515-8671-43b7-9dd9-9bf7815d7522}</Project>
       <Name>DebtDestroyer.Model</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="AccountDatabase.json" />
-    <None Include="CustomerDatabase.json" />
-    <None Include="packages.config" />
-    <None Include="PayoffDatabase.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="PayoffDataBase.txt" />
+    <ProjectReference Include="..\DebtDestroyer.UnitOfWork\DebtDestroyer.UnitOfWork.csproj">
+      <Project>{603a6fe1-2709-4a25-95b4-9ccacbade28b}</Project>
+      <Name>DebtDestroyer.UnitOfWork</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DebtDestroyerVer2\DebtDestroyer.UI.csproj">
+      <Project>{7bd8abca-36b6-4dbf-aeeb-788ed51f0279}</Project>
+      <Name>DebtDestroyer.UI</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

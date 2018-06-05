@@ -7,9 +7,9 @@ using DebtDestroyer;
 
 namespace DebtDestroyer.Model
 {
-    public class Payoff
+    public class Payoff : IPayoff
     {
-        private ICustomer _Customer { get; set; }
+        //private ICustomer _Customer { get; set; }
         private int _CustomerId { get; set; }
         private decimal _AllocatedFunds { get; set; }
         private IEnumerable<IAccount> _Accounts { get; set; }
@@ -159,6 +159,56 @@ namespace DebtDestroyer.Model
                     }
                 }
             }
+        }
+
+        public IList<DebtDestroyer.Model.Payment> Generate()
+        {
+            var payments = new List<DebtDestroyer.Model.Payment>();
+            var done = false;
+            int month = 0;
+
+            foreach (var account in _Accounts)
+            {
+                payments.Add(new Model.Payment
+                {
+                    _Month = month,
+                    _CustomerId = account._CustomerId,
+                    _AccountId = account._AccountId,
+                    _AccountName = account._Name,
+                    _Balance = account._Balance,
+                    _Payment = account._Payment,
+                    _DailyInterest = account.DailyInterest()
+                });
+            }
+
+            while (!done)
+            {
+                month++;
+                Update();
+                foreach (var account in _Accounts)
+                {
+                    payments.Add(new Model.Payment
+                    {
+                        _Month = month,
+                        _CustomerId = account._CustomerId,
+                        _AccountId = account._AccountId,
+                        _AccountName = account._Name,
+                        _Balance = account._Balance,
+                        _Payment = account._Payment,
+                        _DailyInterest = account.DailyInterest()
+                    });
+                }
+                
+                done = true;
+                foreach (var account in _Accounts)
+                {
+                    if (!account._Balance.Equals(0.00m))
+                        done = false;
+                }
+
+
+            }
+            return payments;
         }
     }
 }
