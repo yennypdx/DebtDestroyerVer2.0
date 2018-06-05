@@ -1,13 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using DebtDestroyer.Model;
 
 namespace DebtDestroyer.UnitOfWork
 {
     public interface IPayoff
     {
-        IList<DebtDestroyer.Model.Payment> Generate();
+        void ApplyAllAccrued();
+        IList<Payment> Generate();
+        IEnumerable<Model.IAccount> GetAccounts();
+        decimal LeftOver();
+        void PrioretySort();
+        void ResetPayments();
+        decimal TotalDailyInterest();
+        decimal TotalMinimumPayments();
+        decimal TotalPayments();
+        void Update();
     }
 }

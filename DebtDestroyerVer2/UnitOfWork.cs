@@ -11,13 +11,13 @@ namespace DebtDestoyer.UI
 {
     public class UnitOfWork : IUnitOfWork
     {
-        public ICustomerDataService customerService { get; set; }
-        public IAccountDataService accountService { get; set; }
+        public ICustomerDataService CustomerService { get; set; }
+        public IAccountDataService AccountService { get; set; }
 
 
-        public IEnumerable<DebtDestroyer.Model.IAccount> getCustomerAccounts(int customerID)
+        public IEnumerable<DebtDestroyer.Model.IAccount> GetCustomerAccounts(int customerID)
         {
-            var accounts = accountService.FindAllByCustomerId(customerID);
+            var accounts = AccountService.FindAllByCustomerId(customerID);
             var returnAccounts = new List<DebtDestroyer.Model.IAccount>();
             foreach (var account in accounts)
             {

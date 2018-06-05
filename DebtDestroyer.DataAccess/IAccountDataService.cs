@@ -5,6 +5,8 @@ namespace DebtDestroyer.DataAccess
 {
     public interface IAccountDataService
     {
+        IList<Account> ReadFromFile();
+        void SaveToFile(IList<Account> accounts);
         void AddAccount(Account newAccount);
         bool DeleteAccount(Account deleteAccount);
         void Dispose();

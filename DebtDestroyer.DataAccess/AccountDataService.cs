@@ -12,13 +12,13 @@ namespace DebtDestroyer.DataAccess
     public class AccountDataService : IAccountDataService
     {
         //TODO: Replace with real database
-        private const string AccountStorageFile = "AccountDatabase.txt"; 
+        private const string AccountStorageFile = @"C:\Users\tcape\source\repos\DebtDestroyerVer2\DebtDestroyer.DataAccess\AccountDatabase.json"; 
 
-        private IList<Account> ReadFromFile()
+        public IList<Account> ReadFromFile()
         {
             if (!File.Exists(AccountStorageFile))
             {
-                //Create dummy List<Account>
+                //throw exception
 
             }
 
@@ -28,6 +28,7 @@ namespace DebtDestroyer.DataAccess
 
         public void AddAccount(Account newAccount)
         {
+            if (newAccount == null) throw new InvalidOperationException("newAccount was null");
             var accounts = ReadFromFile();
             var maxId = accounts.Count == 0 ? 0 : accounts.Max(a => a._AccountId);
 
@@ -37,7 +38,7 @@ namespace DebtDestroyer.DataAccess
             SaveToFile(accounts);
         }
 
-        private void SaveToFile(IList<Account> accounts)
+        public void SaveToFile(IList<Account> accounts)
         {
             var json = JsonConvert.SerializeObject(accounts, Formatting.Indented);
             File.WriteAllText(AccountStorageFile, json);
@@ -46,8 +47,8 @@ namespace DebtDestroyer.DataAccess
         public bool DeleteAccount(Account deleteAccount)
         {
             var accounts = ReadFromFile();
-            var accountToDelete = accounts.SingleOrDefault(a => a._AccountId.Equals(deleteAccount._AccountId));
-            if (accountToDelete == null) return false;
+            var accountToDelete = accounts.ToList().SingleOrDefault(a => a._AccountId.Equals(deleteAccount._AccountId));
+            if (accountToDelete == null) throw new InvalidOperationException("Account not found");
 
             accounts.Remove(accountToDelete);
 
@@ -64,8 +65,8 @@ namespace DebtDestroyer.DataAccess
         public bool EditAccount(Account target)
         {
             var accounts = ReadFromFile();
-            var editAccount = accounts.SingleOrDefault(a => a._AccountId.Equals(target._AccountId));
-            if (editAccount == null) return false;
+            var editAccount = accounts.ToList().SingleOrDefault(a => a._AccountId.Equals(target._AccountId));
+            if (editAccount == null) throw new InvalidOperationException("Account not found");
             var index = accounts.IndexOf(editAccount);
             accounts.Insert(index, target);
             accounts.Remove(editAccount);
@@ -75,17 +76,17 @@ namespace DebtDestroyer.DataAccess
 
         public IEnumerable<Account> FindAll()
         {
-            return ReadFromFile().Select(account =>
-                new Account()
-                {
-                    _AccountId = account._AccountId,
-                    _CustomerId = account._CustomerId,
-                    _Name = account._Name,
-                    _Apr = account._Apr,
-                    _Balance = account._Balance,
-                    _MinPay = account._MinPay,
-                    //_Payment = account._Payment;
-                });
+            //return ReadFromFile().Select(account =>
+            //    new Account()
+            //    {
+            //        _AccountId = account._AccountId,
+            //        _CustomerId = account._CustomerId,
+            //        _Name = account._Name,
+            //        _Apr = account._Apr,
+            //        _Balance = account._Balance,
+            //        _MinPay = account._MinPay,
+            //    });
+            return ReadFromFile();
         }
 
         public Account FindByID(int accountID)
@@ -95,13 +96,14 @@ namespace DebtDestroyer.DataAccess
 
         public Account FindByName(string accountName)
         {
-            return FindAll().SingleOrDefault(account => account._Name.Equals(accountName));
+            return FindAll().ToList().SingleOrDefault(account => account._Name.Equals(accountName));
         }
 
         public IEnumerable<IAccount> FindAllByCustomerId(int customerId)
         {
-            
-            return FindAll().Where(account => account._CustomerId.Equals(customerId));
+            var accounts = FindAll().ToList().Where(account => account._CustomerId.Equals(customerId)).ToList();
+            if (accounts == null || accounts.Count.Equals(0)) throw new InvalidOperationException("Customer ID not found");
+            return accounts;
 
         }
 
