@@ -171,7 +171,7 @@ namespace DebtDestroyer.DataAccess.Tests
         }
 
         [TestMethod()]
-        public void AddNewCustomerTest()
+        public void MockAddNewCustomerTest()
         {
             Customer testCustomer = new Customer
             {
@@ -202,10 +202,8 @@ namespace DebtDestroyer.DataAccess.Tests
         [TestMethod()]
         public void GetAccountsTest()
         {
-            //param account list not implemented yet
-            Assert.Fail();
+            Assert.AreEqual(3, _customerDataService.GetAccounts(1).Count());
         }
-
        
 
         [TestMethod()]
@@ -247,37 +245,94 @@ namespace DebtDestroyer.DataAccess.Tests
         [TestMethod()]
         public void AddNewCustomerTestValid()
         {
-            Assert.Fail();
+            Customer tempCustomer = new Customer
+            {
+                _CustomerId = 0,
+                _UserName = "Johnny",
+                _Email = "jsmith@gmail.com",
+                _Password = "pass1234",
+                _AllocatedFund = 345m
+            };
+
+            _customerDataService.AddNewCustomer(tempCustomer);
+
+            Assert.AreEqual(tempCustomer._UserName, _customerDataService.GetCustomerById(11)._UserName);
         }
 
+        //Adds Customer to database
         [TestMethod()]
         public void AddNewCustomerTestInvalid()
         {
-            Assert.Fail();
+            try
+            {
+                Customer tempCustomer = new Customer();
+
+                _customerDataService.AddNewCustomer(tempCustomer);
+            }
+            catch(InvalidOperationException e)
+            {
+                Assert.IsTrue(true);
+            }
         }
 
         [TestMethod()]
         public void DeleteExistingCustomerTestValid()
         {
-            Assert.Fail();
+            try
+            {
+                _customerDataService.DeleteExistingCustomer(1);
+
+                 _customerDataService.GetCustomerById(1);
+            }
+            catch(InvalidOperationException e)
+            {
+                Assert.IsTrue(true);
+            }
         }
 
         [TestMethod()]
         public void DeleteExistingCustomerTestInvalid()
         {
-            Assert.Fail();
+            try
+            {
+                _customerDataService.DeleteExistingCustomer(11);
+            }
+            catch(InvalidOperationException e)
+            {
+                Assert.IsTrue(true);
+            }
         }
 
         [TestMethod()]
         public void EditCustomerTestValid()
         {
-            Assert.Fail();
+            Customer tempCustomer = new Customer
+            {
+                _CustomerId = 1,
+                _UserName = "Johnny",
+                _Email = "jsmith@gmail.com",
+                _Password = "pass1234",
+                _AllocatedFund = 345m
+            };
+
+            _customerDataService.UpdateCustomer(tempCustomer);
+
+            Assert.AreEqual(tempCustomer._UserName, _customerDataService.GetCustomerById(1)._UserName);
         }
 
         [TestMethod()]
         public void EditCustomerTestInvalid()
         {
-            Assert.Fail();
+            try
+            {
+                Customer tempCustomer = new Customer();
+
+                _customerDataService.UpdateCustomer(tempCustomer);
+            }
+            catch(InvalidOperationException e)
+            {
+                Assert.IsTrue(true);
+            }
         }
 
         [TestMethod()]
@@ -298,44 +353,35 @@ namespace DebtDestroyer.DataAccess.Tests
         [TestMethod()]
         public void GetAllocatedFundsByUserNameAndPassordTestValid()
         {
-            //param account list not implemented yet
-            Assert.Fail();
+            Assert.AreEqual(345m, _customerDataService.GetAllocatedFundsByUserNameAndPassword("John", "pass1234"));
         }
 
         [TestMethod()]
         public void GetCustomerIdByNameTestValid()
         {
-            Assert.Fail();
+            Customer tempCustomer = new Customer
+            {
+                _CustomerId = 1,
+                _UserName = "John",
+                _Email = "jsmith@gmail.com",
+                _Password = "pass1234",
+                _AllocatedFund = 345m
+            };
+
+            Assert.AreEqual(tempCustomer, _customerDataService.GetCustomerById(1));
         }
 
         [TestMethod()]
         public void GetCustomerIdByNameTestInvalid()
         {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void InsertCustomerTestValid()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void InsertCustomerTestInvalid()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void UpdateCustomerTestValid()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void UpdateCustomerTestInvalid()
-        {
-            Assert.Fail();
+            try
+            {
+                _customerDataService.GetCustomerById(11);
+            }
+            catch(InvalidOperationException e)
+            {
+                Assert.IsTrue(true);
+            }
         }
     }
 }
