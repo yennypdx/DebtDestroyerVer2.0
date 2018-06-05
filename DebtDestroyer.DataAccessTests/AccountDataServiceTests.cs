@@ -450,9 +450,16 @@ namespace DebtDestroyer.DataAccess.Tests
         [TestMethod()]
         public void EditAccountNullFailTest()
         {
-            Account tempAccount = new Account();
+            try
+            {
+                Account tempAccount = new Account();
 
-            _accountDataService.EditAccount(tempAccount);
+                _accountDataService.EditAccount(tempAccount);
+            }
+            catch(InvalidOperationException e)
+            {
+                Assert.IsTrue(true);
+            }
         }
 
         [TestMethod()]
