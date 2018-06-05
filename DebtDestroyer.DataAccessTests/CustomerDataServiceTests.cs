@@ -259,6 +259,7 @@ namespace DebtDestroyer.DataAccess.Tests
             Assert.AreEqual(tempCustomer._UserName, _customerDataService.GetCustomerById(11)._UserName);
         }
 
+        //Adds Customer to database
         [TestMethod()]
         public void AddNewCustomerTestInvalid()
         {
