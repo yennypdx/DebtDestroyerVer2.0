@@ -8,16 +8,12 @@ using DebtDestroyer.DataAccess;
 
 namespace DebtDestroyer.UnitOfWork
 {
-    public class Payoff
+    public class Payoff : IPayoff
     {
-        //private ICustomer _Customer { get; set; }
         private int _CustomerId { get; set; }
         private decimal _AllocatedFunds { get; set; }
         private IEnumerable<IAccount> _Accounts { get; set; }
         private IUnitOfWork _UnitOfWork { get; set; }
-
-        //private IAccountDataService accountDataService { get; set; }
-        //private IPayoffDataService payoffDataService { get; set; }
 
         public Payoff(ICustomer customer)
         {
@@ -42,7 +38,7 @@ namespace DebtDestroyer.UnitOfWork
 
         public IEnumerable<DebtDestroyer.Model.IAccount> GetAccounts()
         {
-            return _UnitOfWork.accountService.FindAllByCustomerId(_CustomerId);
+            return _UnitOfWork.AccountService.FindAllByCustomerId(_CustomerId);
         }
 
         public void PrioretySort()
@@ -202,12 +198,14 @@ namespace DebtDestroyer.UnitOfWork
                         _DailyInterest = account.DailyInterest()
                     });
                 }
-                _Accounts.ToList().OrderByDescending(a => a._Balance).ToList();
-                if (_Accounts.First()._Balance == 0.00m)
+                
+                done = true;
+                foreach (var account in _Accounts)
                 {
-                    done = true;
+                    if (!account._Balance.Equals(0.00m))
+                        done = false;
                 }
-
+                
             }
             return payments;
         }

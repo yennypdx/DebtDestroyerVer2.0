@@ -9,45 +9,26 @@ namespace DebtDestroyer.DataAccess
 {
     public class CustomerDataService : ICustomerDataService
     {
+        
         //TODO: Replace with real database
-        private const string CustStorage = "Customer.txt";
-        private const string AccStorage = "Account.txt";
+        private const string CustStorage = @"C:\Users\tcape\source\repos\DebtDestroyerVer2\DebtDestroyer.DataAccess\CustomerDatabase.json";
+        private const string AccStorage = @"C:\Users\tcape\source\repos\DebtDestroyerVer2\DebtDestroyer.DataAccess\AccountDatabase.json";
 
-        private IList<Customer> ReadFromCustomerDb()
+        public IList<Customer> ReadFromCustomerDb()
         {
             if (!File.Exists(CustStorage))
             {
-                return new List<Customer>
-                {
-                    new Customer
-                    { _CustomerId=1,
-                        _UserName ="YeonJae",
-                        _Email ="yeonssi@gmail.com",
-                        _Password="trouble123",
-                        _AllocatedFund=350m,
-                        //_AccountList=GetAccounts(1)
-                    }
-                };
+                throw new InvalidOperationException("File not found");
             }
             var json = File.ReadAllText(CustStorage);
             return JsonConvert.DeserializeObject<List<Customer>>(json);
         }
 
-        private IList<Account> ReadFromAccountDb()
+        public IList<Account> ReadFromAccountDb()
         {
             if (!File.Exists(AccStorage))
             {
-                return new List<Account>
-                {
-                    new Account
-                    {
-                         _AccountId = 1,
-                         _CustomerId = 1,
-                         _Name = "Wells Fargo",
-                         _Balance = 8450m,
-                         _MinPay = 149m
-                    }
-                };
+                throw new InvalidOperationException("File not found");
             }
             var json = File.ReadAllText(AccStorage);
             return JsonConvert.DeserializeObject<List<Account>>(json);
@@ -56,7 +37,6 @@ namespace DebtDestroyer.DataAccess
         public ICustomer GetCustomerById(int customerID)
         {
              var ICustomer = ReadFromCustomerDb();
-
              return ICustomer.SingleOrDefault(customer => customer._CustomerId.Equals(customerID));
         }
 
@@ -72,7 +52,7 @@ namespace DebtDestroyer.DataAccess
             SaveToStorage(customers);
         }
 
-        private void InsertCustomer(Customer customer)
+        public void InsertCustomer(Customer customer)
         {
             var customers = ReadFromCustomerDb();
             var maxCustId = customers.Count == 0 ? 0 : customers.Max(f => f._CustomerId);
@@ -82,7 +62,7 @@ namespace DebtDestroyer.DataAccess
             SaveToStorage(customers);
         }
 
-        private void SaveToStorage(IList<Customer> customer)
+        public void SaveToStorage(IList<Customer> customer)
         {
             var json = JsonConvert.SerializeObject(customer, Formatting.Indented);
             File.WriteAllText(CustStorage, json);
@@ -110,23 +90,36 @@ namespace DebtDestroyer.DataAccess
             SaveToStorage(customers);
         }
 
-        public ICollection<Account> GetAccounts(int customerId)
+        public IEnumerable<Account> GetAccounts(int customerId)
         {
-            var customerAcc = ReadFromAccountDb();
-            List<Account> AccountListOfOneCustomer = new List<Account>();
-
-            foreach(var accId in customerAcc)
-            {
-                if(accId._CustomerId == customerId)
-                {
-                    AccountListOfOneCustomer.Add(accId);
-                }
-            }
-            return AccountListOfOneCustomer;
+            var accounts = ReadFromAccountDb();
+            var customerAccounts = accounts.ToList().Where(a => a._CustomerId.Equals(customerId));
+            if (customerAccounts == null || customerAccounts.Count().Equals(0)) throw new InvalidOperationException("Customer accounts not found");
+            return customerAccounts;
         }
 
-        public decimal GetAllocatedFunds(Customer customer)
+        public void EditCustomer(Customer customer)
         {
+            var customers = ReadFromCustomerDb();
+            var updateCustomer = customers.Single(c => c._CustomerId.Equals(customer._CustomerId));
+            var index = customers.IndexOf(updateCustomer);
+            customers.Insert(index, customer);
+            customers.Remove(updateCustomer);
+            SaveToStorage(customers);
+        }
+        public Decimal GetAllocatedFunds(Customer customer) // get by custId, get by username/password
+        {
+            var customers = ReadFromCustomerDb();
+            var fundCustomer = customers.SingleOrDefault(c => c._CustomerId.Equals(customer._CustomerId));
+            if (fundCustomer == null) throw new InvalidOperationException("Customer not found");
+            return fundCustomer._AllocatedFund;
+        }
+
+        public Decimal GetAllocatedFundsByUserNameAndPassword(string name, string password)
+        {
+            var customers = ReadFromCustomerDb();
+            var customer = customers.SingleOrDefault(c => c._UserName.Equals(name));
+            if (customer == null) throw new InvalidOperationException("Username not found");
             return customer._AllocatedFund;
         }
 

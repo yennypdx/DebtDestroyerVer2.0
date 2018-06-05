@@ -1,26 +1,75 @@
-﻿using System;
+﻿using DebtDestroyer.Model;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DebtDestroyer.DataAccess
 {
-    public class PayoffDataService : IPayoffDataService
+    public class PayoffDataService : IPayoffDataService // This only allows payoff DB to store payments list for ONE customer
     {
-        public ICustomerDataService _CustomerData;
-        public IAccountDataService _AccountsData;
-        //private int _CustomerId;
-        //private int _AccountId;
+     
+        private const string PayoffDataBase = "C:\\Users\\tcape\\source\\repos\\DebtDestroyerVer2\\DebtDestroyer.DataAccess\\PayoffDatabase.json";
 
-        public void SaveToFile(IEnumerable<string> payoff)
+        public IList<Payment> ReadFromFile()
         {
-            throw new NotImplementedException();
+            if (!File.Exists(PayoffDataBase))
+            {
+                //throw exception
+            }
+
+            var json = File.ReadAllText(PayoffDataBase);
+            return JsonConvert.DeserializeObject<List<Payment>>(json);
         }
 
-        public void stuff()
+        public IEnumerable<Payment> FindAll()
         {
+            //return ReadFromFile().Select(payment =>
+            //new Payment
+            //{
+            //    _Month = payment._Month,
+            //    _CustomerId = payment._CustomerId,
+            //    _AccountId = payment._AccountId,
+            //    _AccountName = payment._AccountName,
+            //    _Balance = payment._Balance,
+            //    _DailyInterest = payment._DailyInterest
+
+            //});
+            return ReadFromFile();
 
         }
+
+        public IEnumerable<Payment> FindAllByCustomerId(int customerId)
+        {
+            return FindAll().ToList().Where(payment => payment._CustomerId.Equals(customerId)).ToList();
+        }
+
+        public IEnumerable<Payment> FindAllByAccountId(int accountId)
+        {
+            return FindAll().ToList().Where(payment => payment._AccountId.Equals(accountId)).ToList();
+        }
+
+        public IEnumerable<Payment> FindAllByMonth(int month)
+        {
+            return FindAll().ToList().Where(payment => payment._Month.Equals(month)).ToList();
+        }
+
+        public Payment FindPaymentByMonthAndAccountId(int month, int accountId)
+        {
+            var paymentsByMonth = FindAllByMonth(month);
+            if (paymentsByMonth == null) throw new InvalidOperationException("Payments by month is null");
+            return paymentsByMonth.SingleOrDefault(payment => payment._AccountId.Equals(accountId));
+        }
+        public void SaveToFile(IList<Payment> payments)
+        {
+            var json = JsonConvert.SerializeObject(payments, Formatting.Indented);
+            File.WriteAllText(PayoffDataBase, json);
+            
+        }
+
     }
 }
+
