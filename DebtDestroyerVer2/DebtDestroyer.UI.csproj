@@ -54,6 +54,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="PersonalAccess.xaml.cs">
+      <DependentUpon>PersonalAccess.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UnitOfWork.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -67,6 +70,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PersonalAccess.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -107,6 +114,15 @@
       <Project>{603A6FE1-2709-4A25-95B4-9CCACBADE28B}</Project>
       <Name>DebtDestroyer.UnitOfWork</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="dd_draft1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="login2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="user.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

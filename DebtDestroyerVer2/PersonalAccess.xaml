@@ -1,0 +1,30 @@
+﻿<Window x:Class="DebtDestroyerVer2.PersonalAccess"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DebtDestroyerVer2"
+        mc:Ignorable="d"
+        Title="PersonalAccess" Height="450" Width="800">
+    <Grid>
+        <Image Margin="22,10,567.6,355" Source="dd_draft1.png" Stretch="Fill"/>
+        <TabControl HorizontalAlignment="Left" Height="302" Margin="56,70,0,0" VerticalAlignment="Top" Width="672" SelectionChanged="TabControl_SelectionChanged">
+            <TabItem Header="Customer Information">
+                <Grid Background="#FFE5E5E5">
+                    <Image Margin="10,10,598.4,212.4" Source="user.png" Stretch="Fill"/>
+                    <Border BorderBrush="Gray" BorderThickness="1,1,1,1" CornerRadius="8,8,8,8" HorizontalAlignment="Left" Height="214" Margin="111,12,0,0" VerticalAlignment="Top" Width="536"/>
+                    <Button Content="Save" Foreground="White" Background="Black"  HorizontalAlignment="Left" Margin="479,240,0,0" VerticalAlignment="Top" Width="81" Height="24"/>
+                    <Button Content="Cancel" Foreground="White" Background="Black" HorizontalAlignment="Left" Margin="565,240,0,0" VerticalAlignment="Top" Width="75"  Height="24"/>
+                  
+                </Grid>
+            </TabItem>
+            <TabItem Header="Account Detail">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="Payment Planner">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
+        <Label Content="copyright (c) Team 1 - CST236 Software System Testing" HorizontalContentAlignment="Right"   HorizontalAlignment="Left" Margin="446,390,0,0" VerticalAlignment="Top" Width="329"/>
+    </Grid>
+</Window>

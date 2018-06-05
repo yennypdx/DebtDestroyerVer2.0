@@ -5,8 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DebtDestroyerVer2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Login Page" Height="450" Width="800">
     <Grid>
-        
+        <Label Content="copyright (c) Team 1 - CST236 Software System Testing" HorizontalContentAlignment="Right"   HorizontalAlignment="Left" Margin="446,390,0,0" VerticalAlignment="Top" Width="329"/>
+        <Image Margin="21,0,523.6,357" Source="dd_draft1.png" Stretch="Fill"/>
+        <Label Content="User Name:" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="275,194,0,0" VerticalAlignment="Top" Height="27" Width="113"/>
+        <Label Content="Password:"  HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="275,227,0,0" VerticalAlignment="Top" Height="29" Width="113"/>
+        <TextBox HorizontalAlignment="Left" Height="32" Margin="393,191,0,0" TextWrapping="Wrap" Text="Enter you user name" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="195"/>
+        <TextBox HorizontalAlignment="Left" Height="32" Margin="393,225,0,0" TextWrapping="Wrap" Text="Enter your password" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="195"/>
+        <Image Margin="179,170,490.6,143" Source="login2.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-14.54"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Label Content="Please Login To Access This Application" FontSize="20" HorizontalAlignment="Left" Height="42" Margin="245,137,0,0" VerticalAlignment="Top" Width="359"/>
+        <Label Content="Forgot Password" FontSize="10" HorizontalAlignment="Left" Height="27" Margin="393,259,0,0" VerticalAlignment="Top" Width="195"/>
+        <Button Content="Login" Foreground="White" Background="Black" HorizontalAlignment="Left" Margin="416,291,0,0" VerticalAlignment="Top" Width="139" Height="30"/>
+
     </Grid>
 </Window>
