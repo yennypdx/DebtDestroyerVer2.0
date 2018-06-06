@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace DebtDestroyer.DataAccess
 {
-    public interface ICustomerDataService
+    public interface ICustomerDataService : IDisposable
     {
         IList<Customer> ReadFromCustomerDb();
         IList<Account> ReadFromAccountDb();

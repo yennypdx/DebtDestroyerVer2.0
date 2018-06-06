@@ -137,5 +137,10 @@ namespace DebtDestroyer.DataAccess
             }
             return existingCustId;
         }
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

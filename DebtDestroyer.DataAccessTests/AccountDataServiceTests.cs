@@ -55,7 +55,7 @@ namespace DebtDestroyer.DataAccess.Tests
 
             _accountJson = _accountDataService.ReadFromFile();
 
-            //_mockAccountService.Object.SaveToFile(_accountDb);
+            //_mockAccountService.Object.SavePaymentsToFile(_accountDb);
 
             _mockAccountService.Setup(a => a.FindAll()).Returns(
                 () =>
