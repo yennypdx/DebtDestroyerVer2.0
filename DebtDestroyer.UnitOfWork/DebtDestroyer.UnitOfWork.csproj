@@ -40,10 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account.cs" />
-    <Compile Include="Customer.cs" />
-    <Compile Include="IAccount.cs" />
-    <Compile Include="ICustomer.cs" />
     <Compile Include="IPayoff.cs" />
     <Compile Include="IUnitOfWork.cs" />
     <Compile Include="Payoff.cs" />

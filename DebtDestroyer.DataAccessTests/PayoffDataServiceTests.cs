@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Moq;
 using DebtDestroyer.Model;
+using DebtDestroyer.UnitOfWork;
 using DebtDestoyer.UI;
 
 namespace DebtDestroyer.DataAccess.Tests
@@ -39,7 +40,7 @@ namespace DebtDestroyer.DataAccess.Tests
             var customer = new Customer() { _CustomerId = 1, _UserName = "Tim Capehart", _Email = "tcapehart@gmail.com",
                     _Password = "mypassword", _AllocatedFund = 350.00m, _AccountList = customerAccounts };
 
-            var customerPayoff = new Payoff(customer);
+            var customerPayoff = new UnitOfWork.Payoff(customer);
 
             _paymentDb = customerPayoff.Generate();
 

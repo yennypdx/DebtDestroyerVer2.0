@@ -12,7 +12,7 @@ namespace DebtDestroyer.DataAccess
     public class PayoffDataService : IPayoffDataService // This only allows payoff DB to store payments list for ONE customer
     {
      
-        private const string PayoffDataBase = "C:\\Users\\tcape\\source\\repos\\DebtDestroyerVer2\\DebtDestroyer.DataAccess\\PayoffDatabase.json";
+        private const string PayoffDataBase = "PayoffDatabase.json";
 
         public IList<Payment> ReadFromFile()
         {

@@ -11,8 +11,8 @@ namespace DebtDestroyer.DataAccess
     {
         
         //TODO: Replace with real database
-        private const string CustStorage = @"C:\Users\tcape\source\repos\DebtDestroyerVer2\DebtDestroyer.DataAccess\CustomerDatabase.json";
-        private const string AccStorage = @"C:\Users\tcape\source\repos\DebtDestroyerVer2\DebtDestroyer.DataAccess\AccountDatabase.json";
+        private const string CustStorage = "CustomerDatabase.json";
+        private const string AccStorage = "AccountDatabase.json";
 
         public IList<Customer> ReadFromCustomerDb()
         {
