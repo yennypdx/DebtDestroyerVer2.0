@@ -61,10 +61,6 @@
       <Project>{603a6fe1-2709-4a25-95b4-9ccacbade28b}</Project>
       <Name>DebtDestroyer.UnitOfWork</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DebtDestroyerVer2\DebtDestroyer.UI.csproj">
-      <Project>{7bd8abca-36b6-4dbf-aeeb-788ed51f0279}</Project>
-      <Name>DebtDestroyer.UI</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

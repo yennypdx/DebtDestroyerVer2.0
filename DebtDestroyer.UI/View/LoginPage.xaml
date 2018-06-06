@@ -8,12 +8,12 @@
         Title="Login Page" Height="450" Width="800">
     <Grid>
         <Label Content="copyright (c) Team 1 - CST236 Software System Testing" HorizontalContentAlignment="Right"   HorizontalAlignment="Left" Margin="446,390,0,0" VerticalAlignment="Top" Width="329"/>
-        <Image Margin="21,0,523.6,357" Source="dd_draft1.png" Stretch="Fill"/>
+        <Image Margin="21,0,523.6,357" Source="/DebtDestroyerVer2;component/Images/dd_draft1.png" Stretch="Fill"/>
         <Label Content="User Name:" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="275,194,0,0" VerticalAlignment="Top" Height="27" Width="113"/>
         <Label Content="Password:"  HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="275,227,0,0" VerticalAlignment="Top" Height="29" Width="113"/>
         <TextBox HorizontalAlignment="Left" Height="32" Margin="393,191,0,0" TextWrapping="Wrap" Text="Enter you user name" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="195"/>
         <TextBox HorizontalAlignment="Left" Height="32" Margin="393,225,0,0" TextWrapping="Wrap" Text="Enter your password" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="195"/>
-        <Image Margin="179,170,490.6,143" Source="login2.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+        <Image Margin="179,170,490.6,143" Source="C:\Repos\DebtDestroyerVer2\DebtDestroyerVer2\Images\login2.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

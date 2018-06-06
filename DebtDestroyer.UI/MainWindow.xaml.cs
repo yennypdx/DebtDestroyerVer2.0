@@ -10,16 +10,15 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DebtDestroyerVer2
+namespace DebtDestroyer.UI
 {
-    /// <summary>
-    /// Interaction logic for PersonalAccess.xaml
-    /// </summary>
-    public partial class PersonalAccess : Window
+
+    public partial class MainWindow : Window
     {
-        public PersonalAccess()
+        public MainWindow()
         {
             InitializeComponent();
         }

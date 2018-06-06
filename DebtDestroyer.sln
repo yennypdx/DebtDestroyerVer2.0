@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebtDestroyer.UI", "DebtDestroyerVer2\DebtDestroyer.UI.csproj", "{7BD8ABCA-36B6-4DBF-AEEB-788ED51F0279}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebtDestroyer.Model", "DebtDestroyer.Model\DebtDestroyer.Model.csproj", "{EAE94515-8671-43B7-9DD9-9BF7815D7522}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebtDestroyer.DataAccess", "DebtDestroyer.DataAccess\DebtDestroyer.DataAccess.csproj", "{21706B47-5E70-415C-85B4-D74BE97E08C1}"
@@ -13,11 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebtDestroyer.UITests", "De
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebtDestroyer.UnitOfWork", "DebtDestroyer.UnitOfWork\DebtDestroyer.UnitOfWork.csproj", "{603A6FE1-2709-4A25-95B4-9CCACBADE28B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebtDestroyer.DataAccess.Tests", "DebtDestroyer.DataAccess.Tests\DebtDestroyer.DataAccess.Tests.csproj", "{B3D8FFAF-4522-488F-865B-8D783F285574}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebtDestroyer.DataAccessTests", "DebtDestroyer.DataAccessTests\DebtDestroyer.DataAccessTests.csproj", "{EFD82069-DC46-43C2-A712-B0F745484B8B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{BD34FA73-00F3-463F-A516-7C98904753CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebtDestroyer.UI", "DebtDestroyer.UI\DebtDestroyer.UI.csproj", "{7BD8ABCA-36B6-4DBF-AEEB-788ED51F0279}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +23,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7BD8ABCA-36B6-4DBF-AEEB-788ED51F0279}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7BD8ABCA-36B6-4DBF-AEEB-788ED51F0279}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7BD8ABCA-36B6-4DBF-AEEB-788ED51F0279}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7BD8ABCA-36B6-4DBF-AEEB-788ED51F0279}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EAE94515-8671-43B7-9DD9-9BF7815D7522}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EAE94515-8671-43B7-9DD9-9BF7815D7522}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EAE94515-8671-43B7-9DD9-9BF7815D7522}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,10 +39,6 @@ Global
 		{603A6FE1-2709-4A25-95B4-9CCACBADE28B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{603A6FE1-2709-4A25-95B4-9CCACBADE28B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{603A6FE1-2709-4A25-95B4-9CCACBADE28B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B3D8FFAF-4522-488F-865B-8D783F285574}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B3D8FFAF-4522-488F-865B-8D783F285574}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B3D8FFAF-4522-488F-865B-8D783F285574}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B3D8FFAF-4522-488F-865B-8D783F285574}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EFD82069-DC46-43C2-A712-B0F745484B8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EFD82069-DC46-43C2-A712-B0F745484B8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFD82069-DC46-43C2-A712-B0F745484B8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -57,6 +47,10 @@ Global
 		{BD34FA73-00F3-463F-A516-7C98904753CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD34FA73-00F3-463F-A516-7C98904753CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD34FA73-00F3-463F-A516-7C98904753CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BD8ABCA-36B6-4DBF-AEEB-788ED51F0279}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BD8ABCA-36B6-4DBF-AEEB-788ED51F0279}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BD8ABCA-36B6-4DBF-AEEB-788ED51F0279}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BD8ABCA-36B6-4DBF-AEEB-788ED51F0279}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
