@@ -18,7 +18,7 @@ namespace DebtDestroyer.DataAccess
         {
             if (!File.Exists(PayoffDataBase))
             {
-                //throw exception
+                throw new InvalidOperationException("File not found");
             }
 
             var json = File.ReadAllText(PayoffDataBase);
