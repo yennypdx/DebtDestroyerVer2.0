@@ -1,4 +1,5 @@
 ﻿using DebtDestroyer.DataAccess;
+using DebtDestroyer.Model;
 using DebtDestroyer.UnitOfWork;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,12 @@ namespace DebtDestroyer.UI.DataProvider
             _dataServiceCreator = dataServiceCreator;
         }
 
-       
+        public ICustomerDataService CustomerService { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public IAccountDataService AccountService { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public IEnumerable<IAccount> GetCustomerAccounts(int customerID)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

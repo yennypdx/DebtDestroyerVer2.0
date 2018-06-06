@@ -1,5 +1,7 @@
 ﻿using DebtDestroyer.DataAccess;
+using DebtDestroyer.Model;
 using DebtDestroyer.UnitOfWork;
+using System;
 using System.Collections.Generic;
 
 namespace DebtDestoyer.UI.DataProvider
