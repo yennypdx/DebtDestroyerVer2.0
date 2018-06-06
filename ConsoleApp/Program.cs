@@ -91,12 +91,12 @@ namespace ConsoleApp
 
             _customerDataService.SaveToStorage(customers);
 
-            //_accountDataService.SaveToFile(accountdB);
+            //_accountDataService.SavePaymentsToFile(accountdB);
 
             var customerPayoff = new Payoff(customer);
             var paymentStrings = new List<string>();
             var _paymentDb = customerPayoff.Generate();
-            //_payoffDataService.SaveToFile(_paymentDb);
+            //_payoffDataService.SavePaymentsToFile(_paymentDb);
             var sortedPayments = _paymentDb.ToList().OrderBy(p => p._Month).ThenByDescending(pay => pay._DailyInterest).ToList();
             foreach (var payment in sortedPayments)
             {

@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using DebtDestroyer.Model;
 
 namespace DebtDestroyer.DataAccess
 {
-    public interface IAccountDataService
+    public interface IAccountDataService : IDisposable
     {
         IList<Account> ReadFromFile();
         void SaveToFile(IList<Account> accounts);

@@ -25,7 +25,7 @@ namespace DebtDestroyer.DataAccess
             return JsonConvert.DeserializeObject<List<Payment>>(json);
         }
 
-        public IEnumerable<Payment> FindAll()
+        public IEnumerable<Payment> FindAllPayments()
         {
             //return ReadFromFile().Select(payment =>
             //new Payment
@@ -42,19 +42,19 @@ namespace DebtDestroyer.DataAccess
 
         }
 
-        public IEnumerable<Payment> FindAllByCustomerId(int customerId)
+        public IEnumerable<Payment> FindAllPaymentsByCustomerId(int customerId)
         {
-            return FindAll().ToList().Where(payment => payment._CustomerId.Equals(customerId)).ToList();
+            return FindAllPayments().ToList().Where(payment => payment._CustomerId.Equals(customerId)).ToList();
         }
 
         public IEnumerable<Payment> FindAllByAccountId(int accountId)
         {
-            return FindAll().ToList().Where(payment => payment._AccountId.Equals(accountId)).ToList();
+            return FindAllPayments().ToList().Where(payment => payment._AccountId.Equals(accountId)).ToList();
         }
 
         public IEnumerable<Payment> FindAllByMonth(int month)
         {
-            return FindAll().ToList().Where(payment => payment._Month.Equals(month)).ToList();
+            return FindAllPayments().ToList().Where(payment => payment._Month.Equals(month)).ToList();
         }
 
         public Payment FindPaymentByMonthAndAccountId(int month, int accountId)
@@ -63,13 +63,17 @@ namespace DebtDestroyer.DataAccess
             if (paymentsByMonth == null) throw new InvalidOperationException("Payments by month is null");
             return paymentsByMonth.SingleOrDefault(payment => payment._AccountId.Equals(accountId));
         }
-        public void SaveToFile(IList<Payment> payments)
+        public void SavePaymentsToFile(IList<Payment> payments)
         {
             var json = JsonConvert.SerializeObject(payments, Formatting.Indented);
             File.WriteAllText(PayoffDataBase, json);
             
         }
 
+        public void Dispose()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 
