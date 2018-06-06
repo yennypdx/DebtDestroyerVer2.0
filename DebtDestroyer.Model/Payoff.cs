@@ -205,8 +205,7 @@ namespace DebtDestroyer.Model
                     if (!account._Balance.Equals(0.00m))
                         done = false;
                 }
-
-
+                
             }
             return payments;
         }

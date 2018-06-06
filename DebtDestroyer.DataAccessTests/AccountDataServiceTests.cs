@@ -448,18 +448,20 @@ namespace DebtDestroyer.DataAccess.Tests
         }
 
         [TestMethod()]
+        [ExpectedException(typeof (InvalidOperationException))]
         public void EditAccountNullFailTest()
         {
-            try
+            Account tempAccount = new Account
             {
-                Account tempAccount = new Account();
-
-                _accountDataService.EditAccount(tempAccount);
-            }
-            catch(InvalidOperationException e)
-            {
-                Assert.IsTrue(true);
-            }
+                _AccountId = 11,
+                _CustomerId = 3,
+                _Name = "Student Loan3",
+                _Balance = 3500.00m,
+                _Apr = 0.199f,
+                _MinPay = 25.00m,
+                _Payment = 100.00m
+            };
+            _accountDataService.EditAccount(tempAccount);
         }
 
         [TestMethod()]

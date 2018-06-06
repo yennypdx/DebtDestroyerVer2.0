@@ -11,8 +11,8 @@ namespace DebtDestroyer.DataAccess
     {
         
         //TODO: Replace with real database
-        private const string CustStorage = @"C:\Users\slaug\Desktop\CST\CST 236 - System Testing\DebtDestroyer2\DebtDestroyer.DataAccess\CustomerDatabase.json";
-        private const string AccStorage = @"C:\Users\slaug\Desktop\CST\CST 236 - System Testing\DebtDestroyer2\DebtDestroyer.DataAccess\AccountDatabase.json";
+        private const string CustStorage = "CustomerDatabase.json";
+        private const string AccStorage = "AccountDatabase.json";
 
         public IList<Customer> ReadFromCustomerDb()
         {
@@ -42,7 +42,6 @@ namespace DebtDestroyer.DataAccess
 
         public void UpdateCustomer(Customer customer)
         {
-            if (customer._AccountList == null && customer._Email == null && customer._Password == null && customer._UserName == null) throw new InvalidOperationException("Customer was null");
             var customers = ReadFromCustomerDb();
             var customerToUpdate = customers.SingleOrDefault(f => f._CustomerId.Equals(customer._CustomerId));
 
@@ -55,13 +54,10 @@ namespace DebtDestroyer.DataAccess
 
         public void InsertCustomer(Customer customer)
         {
-            Customer tempcustomer = new Customer();
-            if (customer == tempcustomer) throw new InvalidOperationException("customer was null");
             var customers = ReadFromCustomerDb();
             var maxCustId = customers.Count == 0 ? 0 : customers.Max(f => f._CustomerId);
 
             customer._CustomerId = maxCustId + 1;
-            customers.Add(customer);
 
             SaveToStorage(customers);
         }
