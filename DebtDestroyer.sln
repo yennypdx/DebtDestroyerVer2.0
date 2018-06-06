@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebtDestroyer.UI", "DebtDestroyerVer2\DebtDestroyer.UI.csproj", "{7BD8ABCA-36B6-4DBF-AEEB-788ED51F0279}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebtDestroyer.Model", "DebtDestroyer.Model\DebtDestroyer.Model.csproj", "{EAE94515-8671-43B7-9DD9-9BF7815D7522}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebtDestroyer.DataAccess", "DebtDestroyer.DataAccess\DebtDestroyer.DataAccess.csproj", "{21706B47-5E70-415C-85B4-D74BE97E08C1}"
@@ -21,16 +19,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebtDestroyer.ModelTests", "DebtDestroyer.ModelTests\DebtDestroyer.ModelTests.csproj", "{12E7141B-ED66-4376-A0BF-563A2CD62E8E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebtDestroyer.UI", "DebtDestroyer.UI\DebtDestroyer.UI.csproj", "{7BD8ABCA-36B6-4DBF-AEEB-788ED51F0279}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7BD8ABCA-36B6-4DBF-AEEB-788ED51F0279}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7BD8ABCA-36B6-4DBF-AEEB-788ED51F0279}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7BD8ABCA-36B6-4DBF-AEEB-788ED51F0279}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7BD8ABCA-36B6-4DBF-AEEB-788ED51F0279}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EAE94515-8671-43B7-9DD9-9BF7815D7522}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EAE94515-8671-43B7-9DD9-9BF7815D7522}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EAE94515-8671-43B7-9DD9-9BF7815D7522}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -63,6 +59,10 @@ Global
 		{12E7141B-ED66-4376-A0BF-563A2CD62E8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12E7141B-ED66-4376-A0BF-563A2CD62E8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12E7141B-ED66-4376-A0BF-563A2CD62E8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BD8ABCA-36B6-4DBF-AEEB-788ED51F0279}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BD8ABCA-36B6-4DBF-AEEB-788ED51F0279}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BD8ABCA-36B6-4DBF-AEEB-788ED51F0279}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BD8ABCA-36B6-4DBF-AEEB-788ED51F0279}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

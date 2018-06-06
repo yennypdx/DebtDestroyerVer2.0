@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Moq;
 using DebtDestroyer.Model;
 using DebtDestroyer.UnitOfWork;
-using DebtDestoyer.UI;
+//using DebtDestroyer.UI;
 
 namespace DebtDestroyer.DataAccess.Tests
 {
@@ -46,11 +46,11 @@ namespace DebtDestroyer.DataAccess.Tests
 
             
             _mockService = new Mock<IPayoffDataService>();
-            //_mockService.Object.SaveToFile(_paymentDb);
+            //_mockService.Object.SavePaymentsToFile(_paymentDb);
 
 
 
-            _mockService.Setup(p => p.FindAll()).Returns(
+            _mockService.Setup(p => p.FindAllPayments()).Returns(
                 () =>
                 {
                     var payments = new List<Payment>();
@@ -70,7 +70,7 @@ namespace DebtDestroyer.DataAccess.Tests
                     return payments;
                 });
 
-            _mockService.Setup(p => p.FindAllByCustomerId(It.IsAny<int>())).Returns(
+            _mockService.Setup(p => p.FindAllPaymentsByCustomerId(It.IsAny<int>())).Returns(
                 (int customerId) =>
                 {
                     return _paymentDb.ToList().Where(p => p._CustomerId.Equals(customerId)).ToList();
@@ -109,14 +109,14 @@ namespace DebtDestroyer.DataAccess.Tests
         [TestMethod()]
         public void MockFindAllTest() 
         {
-            var payments = _mockService.Object.FindAll();
+            var payments = _mockService.Object.FindAllPayments();
             Assert.IsTrue(payments.ToList().LastOrDefault()._Balance == 0.00m && payments.ToList().FirstOrDefault()._Balance > 0.00m);
         }
 
         [TestMethod()]
         public void MockFindAllByCustomerIdTestValid()
         {
-            var payments = _mockService.Object.FindAllByCustomerId(1);
+            var payments = _mockService.Object.FindAllPaymentsByCustomerId(1);
             bool pass = true;
 
             if (payments.Count().Equals(0)) pass = false;
@@ -132,7 +132,7 @@ namespace DebtDestroyer.DataAccess.Tests
         [TestMethod()]
         public void MockFindAllByCustomerIdTestInvalidId()
         {
-            var payments = _mockService.Object.FindAllByCustomerId(2);
+            var payments = _mockService.Object.FindAllPaymentsByCustomerId(2);
             bool pass = true;
 
             if (payments.Count().Equals(0)) pass = false;
@@ -241,14 +241,14 @@ namespace DebtDestroyer.DataAccess.Tests
         [TestMethod()]
         public void FindAllTest()
         {
-            var payments = _payoffService.FindAll();
+            var payments = _payoffService.FindAllPayments();
             Assert.IsTrue(payments.Count().Equals(81));
         }
 
         [TestMethod()]
         public void FindAllByCustomerIdTestValid()
         {
-            var payments = _payoffService.FindAllByCustomerId(1);
+            var payments = _payoffService.FindAllPaymentsByCustomerId(1);
             bool pass = true;
 
             if (payments == null || payments.Count().Equals(0)) pass = false;
@@ -264,7 +264,7 @@ namespace DebtDestroyer.DataAccess.Tests
         [TestMethod()]
         public void FindAllByCustomerIdTestInvalidId()
         {
-            var payments = _payoffService.FindAllByCustomerId(2);
+            var payments = _payoffService.FindAllPaymentsByCustomerId(2);
             bool pass = true;
 
             if (payments == null || payments.Count().Equals(0)) pass = false;

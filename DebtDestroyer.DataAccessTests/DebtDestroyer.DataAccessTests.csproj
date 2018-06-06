@@ -90,10 +90,6 @@
       <Project>{603a6fe1-2709-4a25-95b4-9ccacbade28b}</Project>
       <Name>DebtDestroyer.UnitOfWork</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DebtDestroyerVer2\DebtDestroyer.UI.csproj">
-      <Project>{7BD8ABCA-36B6-4DBF-AEEB-788ED51F0279}</Project>
-      <Name>DebtDestroyer.UI</Name>
-    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
