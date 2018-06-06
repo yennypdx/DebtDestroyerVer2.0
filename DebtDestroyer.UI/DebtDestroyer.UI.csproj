@@ -62,7 +62,9 @@
     </ApplicationDefinition>
     <Compile Include="DataProvider\INavigationDataProvider.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
-    <Compile Include="ViewModel\ViewModeBase.cs" />
+    <Compile Include="ViewModel\NavigationItemViewModel.cs" />
+    <Compile Include="ViewModel\NavigationViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="View\CustomerInput.xaml.cs">
       <DependentUpon>CustomerInput.xaml</DependentUpon>
     </Compile>

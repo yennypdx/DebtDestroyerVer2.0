@@ -1,6 +1,7 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
-using DebtDestoyer.UI.ViewModel;
+using DebtDestroyer.UI.ViewModel;
 
 namespace DebtDestroyer.UI.View
 {
@@ -11,6 +12,11 @@ namespace DebtDestroyer.UI.View
         {
             InitializeComponent();
 
+        }
+
+        private void InitializeComponent()
+        {
+            throw new NotImplementedException();
         }
 
         //this is the method from the payment plan, to get prediction for so many months ahead

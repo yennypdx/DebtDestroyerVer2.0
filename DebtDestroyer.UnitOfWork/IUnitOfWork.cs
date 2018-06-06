@@ -1,11 +1,9 @@
 ﻿using DebtDestroyer.DataAccess;
 using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DebtDestroyer.UnitOfWork
 {
-    public interface IUnitOfWork
+    public interface IUnitOfWork: System.IDisposable
     {
         ICustomerDataService CustomerService { get; set; }
         IAccountDataService AccountService { get; set; }
