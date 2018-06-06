@@ -10,26 +10,27 @@ namespace DebtDestroyer.UnitOfWork
 {
     public class Payoff : IPayoff
     {
-        private int _CustomerId { get; set; }
-        private decimal _AllocatedFunds { get; set; }
-        private IEnumerable<IAccount> _Accounts { get; set; }
-        private IUnitOfWork _UnitOfWork { get; set; }
+        public int _CustomerId { get; set; }
+        public decimal _AllocatedFunds { get; set; }
+        public IEnumerable<Model.IAccount> _Accounts { get; set; }
+        public IUnitOfWork _UnitOfWork { get; set; }
 
-        public Payoff(ICustomer customer)
+        public Payoff(Model.ICustomer customer)
         {
             _CustomerId = customer._CustomerId;
             _AllocatedFunds = customer._AllocatedFund;
             _Accounts = customer._AccountList;
         }
 
-        public Payoff(int customerId, int allocatedFunds, IEnumerable<IAccount> accounts)
+        public Payoff(int customerId, decimal allocatedFunds, IUnitOfWork unitOfWork)
         {
             _CustomerId = customerId;
             _AllocatedFunds = allocatedFunds;
-            _Accounts = accounts;
+            _Accounts = null;
+            _UnitOfWork = unitOfWork;
         }
 
-        public Payoff(int customerId, int allocatedFunds)
+        public Payoff(int customerId, decimal allocatedFunds)
         {
             _CustomerId = customerId;
             _AllocatedFunds = allocatedFunds;
@@ -43,7 +44,7 @@ namespace DebtDestroyer.UnitOfWork
 
         public void PrioretySort()
         {
-            _Accounts = _Accounts.ToList().OrderBy(account => account.DailyInterest()).ToList();
+            _Accounts = _Accounts.ToList().OrderByDescending(account => account.DailyInterest()).ToList();
         }
 
         public decimal TotalDailyInterest()
