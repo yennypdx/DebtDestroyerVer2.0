@@ -3,11 +3,8 @@ using DebtDestroyer.Model;
 using DebtDestroyer.UnitOfWork;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace DebtDestoyer.UI
+namespace DebtDestoyer.UI.DataProvider
 {
     public class UnitOfWork : IUnitOfWork
     {

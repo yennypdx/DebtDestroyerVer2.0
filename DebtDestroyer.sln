@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebtDestroyer.UITests", "De
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebtDestroyer.UnitOfWork", "DebtDestroyer.UnitOfWork\DebtDestroyer.UnitOfWork.csproj", "{603A6FE1-2709-4A25-95B4-9CCACBADE28B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebtDestroyer.DataAccess.Tests", "DebtDestroyer.DataAccess.Tests\DebtDestroyer.DataAccess.Tests.csproj", "{D10A9413-A5F1-4B75-9CC4-2A26BE4CD396}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebtDestroyer.DataAccessTests", "DebtDestroyer.DataAccessTests\DebtDestroyer.DataAccessTests.csproj", "{EFD82069-DC46-43C2-A712-B0F745484B8B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{BD34FA73-00F3-463F-A516-7C98904753CC}"
@@ -43,10 +41,6 @@ Global
 		{603A6FE1-2709-4A25-95B4-9CCACBADE28B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{603A6FE1-2709-4A25-95B4-9CCACBADE28B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{603A6FE1-2709-4A25-95B4-9CCACBADE28B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D10A9413-A5F1-4B75-9CC4-2A26BE4CD396}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D10A9413-A5F1-4B75-9CC4-2A26BE4CD396}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D10A9413-A5F1-4B75-9CC4-2A26BE4CD396}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D10A9413-A5F1-4B75-9CC4-2A26BE4CD396}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EFD82069-DC46-43C2-A712-B0F745484B8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EFD82069-DC46-43C2-A712-B0F745484B8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFD82069-DC46-43C2-A712-B0F745484B8B}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 
 namespace DebtDestroyer.UI.ViewModel
 {
-    public class ViewModeBase : INotifyPropertyChanged
+    public class ViewModelBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
