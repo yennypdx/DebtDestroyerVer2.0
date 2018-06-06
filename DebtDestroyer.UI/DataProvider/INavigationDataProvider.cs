@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DebtDestroyer.UI
+namespace DebtDestroyer.UI.DataProvider
 {
-    class Program
+    public interface INavigationDataProvider
     {
-        static void Main(string[] args)
-        {
-        }
+
     }
 }

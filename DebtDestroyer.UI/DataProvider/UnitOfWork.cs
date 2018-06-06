@@ -14,7 +14,6 @@ namespace DebtDestoyer.UI
         public ICustomerDataService CustomerService { get; set; }
         public IAccountDataService AccountService { get; set; }
 
-
         public IEnumerable<DebtDestroyer.Model.IAccount> GetCustomerAccounts(int customerID)
         {
             var accounts = AccountService.FindAllByCustomerId(customerID);
@@ -34,8 +33,5 @@ namespace DebtDestoyer.UI
             }
             return returnAccounts;
         }
-
-
-
     }
 }
