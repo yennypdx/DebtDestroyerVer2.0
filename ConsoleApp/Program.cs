@@ -1,5 +1,7 @@
-﻿using DebtDestroyer.DataAccess;
+﻿using DebtDestoyer.UI.DataProvider;
+using DebtDestroyer.DataAccess;
 using DebtDestroyer.Model;
+
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,15 +13,20 @@ namespace ConsoleApp
 {
     class Program
     {
-       
-
+        
         static void Main(string[] args)
         {
+            
             PayoffDataService _payoffDataService = new PayoffDataService();
             AccountDataService _accountDataService = new AccountDataService();
             CustomerDataService _customerDataService = new CustomerDataService();
             
-            var path = @"C:\Users\tcape\source\repos\DebtDestroyerVer2\DebtDestroyer.DataAccess\PayoffDatabase.txt";
+
+            int currentMonth = 0;
+            
+            //var payoffPath = "PayoffDatabase";
+            //var accountPath = "AccountDatabase.json";
+            //var customerPath = "PayoffDatabase.json";
 
             var accountdB = new List<Account>()
             {
@@ -79,6 +86,7 @@ namespace ConsoleApp
                 new Account {_AccountId = 3, _CustomerId = 1, _Name = "Car Loan_1",
                     _Balance = 4000.00m, _Apr = 0.209f, _MinPay = 125.00m, _Payment = 0.00m}
             };
+
             var customer = new Customer()
             {
                 _CustomerId = 1,
@@ -91,17 +99,22 @@ namespace ConsoleApp
 
             _customerDataService.SaveToStorage(customers);
 
-            //_accountDataService.SavePaymentsToFile(accountdB);
+            _accountDataService.SaveToFile(accountdB);
 
             var customerPayoff = new Payoff(customer);
             var paymentStrings = new List<string>();
             var _paymentDb = customerPayoff.Generate();
-            //_payoffDataService.SavePaymentsToFile(_paymentDb);
+            _payoffDataService.SavePaymentsToFile(_paymentDb);
             var sortedPayments = _paymentDb.ToList().OrderBy(p => p._Month).ThenByDescending(pay => pay._DailyInterest).ToList();
             foreach (var payment in sortedPayments)
             {
+                if(payment._Month > currentMonth)
+                {
+                    Console.WriteLine(" ");
+                }
                 Console.WriteLine(payment.ToString());
                 paymentStrings.Add(payment.ToString());
+                currentMonth = payment._Month;
             }
             //File.Delete(path);
             //File.AppendAllLines(path, paymentStrings);
