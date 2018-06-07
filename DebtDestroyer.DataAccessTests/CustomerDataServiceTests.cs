@@ -6,7 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DebtDestroyer.Model;
+using DebtDestoyer.UI.DataProvider;
 using Moq;
+using DebtDestroyer.UnitOfWork;
 
 namespace DebtDestroyer.DataAccess.Tests
 {
@@ -20,15 +22,14 @@ namespace DebtDestroyer.DataAccess.Tests
         private Mock<ICustomerDataService> _customerService;
         private IList<Customer> _customerDb;
         private ICustomerDataService _customerDataService;
-        private DebtDestoyer.UI.UnitOfWork _unit;
+        private IUnitOfWork _unit;
 
         [TestInitialize]
         public void Init()
         {
-            _unit = new DebtDestoyer.UI.UnitOfWork();
-            _unit.AccountService = new AccountDataService();
-            _unit.CustomerService = new CustomerDataService();
-            
+            //_unit = new UnitOfWork.UnitOfWork(_customerDataService, _accountDataSerivice);
+
+
             _customerDataService = new CustomerDataService();
             /*------------- Customer Mocking Starts Here ---------------*/
             _customerDb = new List<Customer>()

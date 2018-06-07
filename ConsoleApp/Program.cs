@@ -1,4 +1,6 @@
-﻿using DebtDestoyer.UI.DataProvider;
+﻿using Autofac;
+using ConsoleApp.Startup;
+using DebtDestoyer.UI.DataProvider;
 using DebtDestroyer.DataAccess;
 using DebtDestroyer.Model;
 
@@ -17,10 +19,17 @@ namespace ConsoleApp
         static void Main(string[] args)
         {
             
-            PayoffDataService _payoffDataService = new PayoffDataService();
-            AccountDataService _accountDataService = new AccountDataService();
-            CustomerDataService _customerDataService = new CustomerDataService();
-            
+            //PayoffDataService payoffRepository = new PayoffDataService();
+            //AccountDataService accountRepository = new AccountDataService();
+            //CustomerDataService customerRepository = new CustomerDataService();
+
+            var bootStrapper = new Bootstrapper();
+            var container = bootStrapper.BootStrap();
+            var customerRepository = container.Resolve<ICustomerDataService>();
+            var accountRepository = container.Resolve<IAccountDataService>();
+            var payoffRepository = container.Resolve<IPayoffDataService>();
+
+
 
             int currentMonth = 0;
             
@@ -97,14 +106,14 @@ namespace ConsoleApp
                 _AccountList = customerAccounts
             };
 
-            _customerDataService.SaveToStorage(customers);
+            customerRepository.SaveToStorage(customers);
 
-            _accountDataService.SaveToFile(accountdB);
+            accountRepository.SaveToFile(accountdB);
 
             var customerPayoff = new Payoff(customer);
             var paymentStrings = new List<string>();
             var _paymentDb = customerPayoff.Generate();
-            _payoffDataService.SavePaymentsToFile(_paymentDb);
+            payoffRepository.SavePaymentsToFile(_paymentDb);
             var sortedPayments = _paymentDb.ToList().OrderBy(p => p._Month).ThenByDescending(pay => pay._DailyInterest).ToList();
             foreach (var payment in sortedPayments)
             {
