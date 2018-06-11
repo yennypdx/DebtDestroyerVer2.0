@@ -9,7 +9,7 @@ namespace DebtDestroyer.Model
         public string _Email { get; set; }
         public string _Password { get; set; }
         public decimal _AllocatedFund { get; set; }
-        public ICollection<Account> _AccountList { get; set; }
+        public IEnumerable<IAccount> _AccountList { get; set; }
         //public IPayoff _Payoff { get; set; }
         
         public override bool Equals(object obj)
@@ -21,7 +21,7 @@ namespace DebtDestroyer.Model
                    _Email == customer._Email &&
                    _Password == customer._Password &&
                    _AllocatedFund == customer._AllocatedFund &&
-                   EqualityComparer<ICollection<Account>>.Default.Equals(_AccountList, customer._AccountList);
+                   EqualityComparer<IEnumerable<IAccount>>.Default.Equals(_AccountList, customer._AccountList);
         }
 
         public override int GetHashCode()
@@ -32,7 +32,7 @@ namespace DebtDestroyer.Model
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(_Email);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(_Password);
             hashCode = hashCode * -1521134295 + EqualityComparer<decimal>.Default.GetHashCode(_AllocatedFund);
-            hashCode = hashCode * -1521134295 + EqualityComparer<ICollection<Account>>.Default.GetHashCode(_AccountList);
+            hashCode = hashCode * -1521134295 + EqualityComparer<IEnumerable<IAccount>>.Default.GetHashCode(_AccountList);
             return hashCode;
         }
 

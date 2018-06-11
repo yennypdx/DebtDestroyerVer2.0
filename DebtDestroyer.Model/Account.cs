@@ -49,13 +49,11 @@ namespace DebtDestroyer.Model
         {
             var builder = new StringBuilder();
             builder.Append("AccountID: " + _AccountId);
-            builder.Append("CustomerID: " + _CustomerId);
-            builder.Append("Name: " + _Name);
-            builder.Append("Balance: " + _Balance);
-            builder.Append("MinPay: " + _MinPay);
-            builder.Append("AvailableCredit: " + _AvailCredit);
-            builder.Append("OneTimePay: " + _OneTimePay);
-            builder.Append("NextPayment: " + _NextPayment);
+            builder.Append("\tCustomerID: " + _CustomerId);
+            builder.Append("\tName: " + _Name);
+            builder.Append("\tBalance: " + _Balance);
+            builder.Append("\tMinPay: " + _MinPay);
+            
             return builder.ToString();
         }
     }

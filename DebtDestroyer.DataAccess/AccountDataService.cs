@@ -18,8 +18,7 @@ namespace DebtDestroyer.DataAccess
         {
             if (!File.Exists(AccountStorageFile))
             {
-                //throw exception
-
+                throw new InvalidOperationException("File not found");
             }
 
             var json = File.ReadAllText(AccountStorageFile);
@@ -30,7 +29,16 @@ namespace DebtDestroyer.DataAccess
         {
             if (newAccount == null) throw new InvalidOperationException("newAccount was null");
             var accounts = ReadFromFile();
-            var maxId = accounts.Count == 0 ? 0 : accounts.Max(a => a._AccountId);
+            var maxId = 0;
+            if (accounts == null)
+            {
+                maxId = 0;
+                accounts = new List<Account>();
+            }
+            else
+            {
+                maxId = accounts.Count == 0 ? 0 : accounts.Max(a => a._AccountId);
+            }
 
             newAccount._AccountId = maxId + 1;
             accounts.Add(newAccount);
@@ -59,7 +67,7 @@ namespace DebtDestroyer.DataAccess
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            File.WriteAllText(AccountStorageFile, string.Empty);
         }
 
         public bool EditAccount(Account target)

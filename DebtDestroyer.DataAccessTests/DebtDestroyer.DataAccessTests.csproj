@@ -93,6 +93,10 @@
       <Project>{EAE94515-8671-43B7-9DD9-9BF7815D7522}</Project>
       <Name>DebtDestroyer.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DebtDestroyer.UI\DebtDestroyer.UI.csproj">
+      <Project>{7bd8abca-36b6-4dbf-aeeb-788ed51f0279}</Project>
+      <Name>DebtDestroyer.UI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DebtDestroyer.UnitOfWork\DebtDestroyer.UnitOfWork.csproj">
       <Project>{603a6fe1-2709-4a25-95b4-9ccacbade28b}</Project>
       <Name>DebtDestroyer.UnitOfWork</Name>
