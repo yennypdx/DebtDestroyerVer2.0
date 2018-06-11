@@ -49,8 +49,8 @@ namespace DebtDestroyer.Model
             builder.Append(" CID: " + _CustomerId);
             builder.Append(" AID: " + _AccountId);
             builder.Append(" Name: " + _AccountName);
-            builder.Append("\tBalance: " + _Balance.ToString("$0.00"));
-            builder.Append("\tPayment: " + _Payment.ToString("$0.00"));
+            builder.Append("\tBalance: " + _Balance.ToString("$0.00" + "  "));
+            builder.Append("\tPayment: " + _Payment.ToString("$0.00") + "  ");
             builder.Append("\tDailyInt: " + _DailyInterest.ToString("$0.00"));
             return builder.ToString();
         }

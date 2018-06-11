@@ -55,10 +55,18 @@ namespace DebtDestroyer.DataAccess
         public void InsertCustomer(Customer customer)
         {
             var customers = ReadFromCustomerDb();
-            var maxCustId = customers.Count == 0 ? 0 : customers.Max(f => f._CustomerId);
+            var maxCustId = 0;
+            if (customers == null)
+            {
+                customers = new List<Customer>();
+            }
+            else
+            {
+                maxCustId = customers.Count == 0 ? 0 : customers.Max(f => f._CustomerId);
+            }
 
             customer._CustomerId = maxCustId + 1;
-
+            customers.Add(customer);
             SaveToStorage(customers);
         }
 
@@ -70,14 +78,15 @@ namespace DebtDestroyer.DataAccess
 
         public void AddNewCustomer(Customer newCustomer)
         {
-            if (newCustomer._CustomerId <= 0)
-            {
-                InsertCustomer(newCustomer);
-            }
-            else
-            {
-                UpdateCustomer(newCustomer);
-            }
+            InsertCustomer(newCustomer);
+            //if (newCustomer._CustomerId <= 0)
+            //{
+            //    InsertCustomer(newCustomer);
+            //}
+            //else
+            //{
+            //    UpdateCustomer(newCustomer);
+            //}
         }
 
         public void DeleteExistingCustomer(int customerId)
@@ -140,7 +149,7 @@ namespace DebtDestroyer.DataAccess
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            File.WriteAllText(CustStorage, string.Empty);
         }
     }
 }

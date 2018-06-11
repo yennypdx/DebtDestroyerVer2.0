@@ -20,9 +20,9 @@ namespace DebtDestroyer.UI.View
         }
 
         //this is the method from the payment plan, to get prediction for so many months ahead
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
+        //private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        //{
 
-        }
+        //}
     }
 }
