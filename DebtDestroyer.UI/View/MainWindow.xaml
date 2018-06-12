@@ -20,9 +20,10 @@
                     <!-- hyperlink "edit data" to the pop up for CustomerInput.xaml -->
 
                     <Label Content="Update data" HorizontalAlignment="Left" Margin="10,135,0,0" VerticalAlignment="Top" Width="96" Height="26" Grid.ColumnSpan="2"/>
-                    <Button Content="Save" Foreground="White" Background="Black"  HorizontalAlignment="Left" Margin="370.2,239,0,0" VerticalAlignment="Top" Width="81" Height="24" Grid.Column="1"/>
-                    <Button Content="Cancel" Foreground="White" Background="Black" HorizontalAlignment="Left" Margin="456.2,239,0,0" VerticalAlignment="Top" Width="75"  Height="24" Grid.Column="1"/>
+                    <Button Content="Add New" Foreground="White" Background="Black"  HorizontalAlignment="Left" Margin="370.2,239,0,0" VerticalAlignment="Top" Width="81" Height="24" Grid.Column="1"/>
+                    <Button Content="Delete" Foreground="White" Background="Black" HorizontalAlignment="Left" Margin="456.2,239,0,0" VerticalAlignment="Top" Width="75"  Height="24" Grid.Column="1"/>
                     <Image Margin="10,10,26.8,202.4" Source="/DebtDestroyerVer2;component/Images/user.png" Stretch="Fill"/>
+                    <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="210" Margin="40,11,0,0" TextWrapping="Wrap" Text="Content projection" VerticalAlignment="Top" Width="491"/>
 
                 </Grid>
             </TabItem>
@@ -41,9 +42,9 @@
                     <Label Content="Bank Name" HorizontalAlignment="Left" Margin="23,213,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.844,-0.023" Width="84"/>
                     <!-- Here's where we will throw in the information from the labels on the left hand side -->
 
-                    <Button Content="Save" Foreground="White" Background="Black" HorizontalAlignment="Left" Margin="372.4,245,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1"/>
-                    <Button Content="Cancel" Foreground="White" Background="Black" HorizontalAlignment="Left" Margin="451.4,245,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1"/>
-                    <DataGrid Grid.Column="1" HorizontalAlignment="Left" Height="218" Margin="22.4,10,0,0" VerticalAlignment="Top" Width="514"/>
+                    <Button Content="Generate Destroyer" Foreground="White" Background="Black" HorizontalAlignment="Left" Margin="305,245,0,0" VerticalAlignment="Top" Width="142" Grid.Column="1"/>
+                    <Button Content="Next >>" Foreground="White" Background="Black" HorizontalAlignment="Left" Margin="451.4,245,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1"/>
+                    <DataGrid Grid.Column="5" HorizontalAlignment="Left" Height="218" Margin="22.4,10,0,0" VerticalAlignment="Top" Width="514"/>
 
                 </Grid>
             </TabItem>
@@ -72,13 +73,12 @@
 
                     <TextBox HorizontalAlignment="Left" HorizontalContentAlignment="Right" Height="20" Margin="28,189,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="27" />
                     <Label Content="months" HorizontalAlignment="Left" Margin="55,185,0,0" VerticalAlignment="Top"/>
-                    <Button Content="Save" Foreground="White" Background="Black" HorizontalAlignment="Left" Margin="368.4,245,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1"/>
-                    <Button Content="Cancel" Foreground="White" Background="Black" HorizontalAlignment="Left" Margin="447.4,245,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1"/>
-                    <DataGrid Grid.Column="1" HorizontalAlignment="Left" Height="214" Margin="26.4,10,0,0" VerticalAlignment="Top" Width="504"/>
+                    <Button Content="Submit" Foreground="White" Background="Black" HorizontalAlignment="Left" Margin="20,217,0,0" VerticalAlignment="Top" Width="75"/>
+                    <DataGrid Grid.Column="5" HorizontalAlignment="Left" Height="214" Margin="26.4,10,0,0" VerticalAlignment="Top" Width="504"/>
                 </Grid>
             </TabItem>
         </TabControl>
         <Label Content="copyright (c) Team 1 - CST236 Software System Testing" HorizontalContentAlignment="Right"   HorizontalAlignment="Left" Margin="446,390,0,0" VerticalAlignment="Top" Width="329"/>
-        <Button Content="Exit" Foreground="White" Background="Black" HorizontalAlignment="Left" Margin="702,12,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Sign Out" Foreground="White" Background="Black" HorizontalAlignment="Left" Margin="702,12,0,0" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </Window>

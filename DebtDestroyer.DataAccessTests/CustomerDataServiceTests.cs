@@ -15,7 +15,7 @@ namespace DebtDestroyer.DataAccess.Tests
     {
         private Mock<IAccountDataService> _accountService;
         private IList<Account> _accountDb;
-        private Mock<IAccountDataService> _accountDataSerivice;
+        private Mock<IAccountDataService> _accountDataService;
 
         private Mock<ICustomerDataService> _customerService;
         private IList<Customer> _customerDb;
@@ -58,7 +58,6 @@ namespace DebtDestroyer.DataAccess.Tests
             _customerService = new Mock<ICustomerDataService>();
 
             //_customerDataService.SaveToStorage(_customerDb);
-
             //_unit.CustomerService.SaveToStorage(_customerDb);
 
             _customerService.Setup(m => m.GetCustomerById(It.IsAny<int>())).Returns(
