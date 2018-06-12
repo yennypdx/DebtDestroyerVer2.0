@@ -6,7 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DebtDestroyer.Model;
+using DebtDestoyer.UI.DataProvider;
 using Moq;
+using DebtDestroyer.UnitOfWork;
 
 namespace DebtDestroyer.DataAccess.Tests
 {
@@ -15,20 +17,19 @@ namespace DebtDestroyer.DataAccess.Tests
     {
         private Mock<IAccountDataService> _accountService;
         private IList<Account> _accountDb;
-        private Mock<IAccountDataService> _accountDataService;
+        private IAccountDataService _accountDataSerivice;
 
         private Mock<ICustomerDataService> _customerService;
         private IList<Customer> _customerDb;
         private ICustomerDataService _customerDataService;
-        //private DebtDestoyer.UI.UnitOfWork _unit;
+        private IUnitOfWork _unit;
 
         [TestInitialize]
         public void Init()
         {
-            //_unit = new DebtDestoyer.UI.UnitOfWork();
-            _accountService = new Mock<IAccountDataService>();
-            _customerService = new Mock<ICustomerDataService>();
-            
+            //_unit = new UnitOfWork.UnitOfWork(_customerDataService, _accountDataSerivice);
+
+
             _customerDataService = new CustomerDataService();
             /*------------- Customer Mocking Starts Here ---------------*/
             _customerDb = new List<Customer>()
@@ -58,7 +59,8 @@ namespace DebtDestroyer.DataAccess.Tests
             _customerService = new Mock<ICustomerDataService>();
 
             //_customerDataService.SaveToStorage(_customerDb);
-            //_unit.CustomerService.SaveToStorage(_customerDb);
+
+            _unit.CustomerService.SaveToStorage(_customerDb);
 
             _customerService.Setup(m => m.GetCustomerById(It.IsAny<int>())).Returns(
                 (int custId) =>
@@ -231,14 +233,14 @@ namespace DebtDestroyer.DataAccess.Tests
         [TestMethod()]
         public void GetCustomerByIdTestValid()
         {
-            var customer = _customerService.Object.GetCustomerById(1);
+            var customer = _unit.CustomerService.GetCustomerById(1);
             Assert.AreEqual("John", customer._UserName);
         }
 
         [TestMethod()]
         public void GetCustomerByIdTestInvalid()
         {
-            Assert.IsNull(_customerService.Object.GetCustomerById(15));
+            Assert.IsNull(_unit.CustomerService.GetCustomerById(15));
         }
 
         [TestMethod()]
@@ -337,7 +339,7 @@ namespace DebtDestroyer.DataAccess.Tests
         [TestMethod()]
         public void GetAccountsTestByIDValid()
         {
-            var accounts = _accountService.Object.FindAllByCustomerId(1);
+            var accounts = _unit.AccountService.FindAllByCustomerId(1);
             Assert.AreEqual(3, accounts.Count());
         }
 
@@ -345,7 +347,7 @@ namespace DebtDestroyer.DataAccess.Tests
         [ExpectedException(typeof(InvalidOperationException))]
         public void GetAccountsTestByIDInvalid()
         {
-            var accounts = _accountService.Object.FindAllByCustomerId(15);
+            var accounts = _unit.AccountService.FindAllByCustomerId(15);
         }
 
 

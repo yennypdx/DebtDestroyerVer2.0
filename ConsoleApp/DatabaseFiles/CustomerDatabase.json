@@ -1,0 +1,82 @@
+[
+  {
+    "_CustomerId": 1,
+    "_UserName": "John",
+    "_Email": "jsmith@gmail.com",
+    "_Password": "pass1234",
+    "_AllocatedFund": 300.0,
+    "_AccountList": null
+  },
+  {
+    "_CustomerId": 2,
+    "_UserName": "Bradly",
+    "_Email": "bj@gmail.com",
+    "_Password": "pass5678",
+    "_AllocatedFund": 250.0,
+    "_AccountList": null
+  },
+  {
+    "_CustomerId": 3,
+    "_UserName": "Kendra",
+    "_Email": "kendra@gmail.com",
+    "_Password": "pass9876",
+    "_AllocatedFund": 150.0,
+    "_AccountList": null
+  },
+  {
+    "_CustomerId": 4,
+    "_UserName": "Casey",
+    "_Email": "casey@gmail.com",
+    "_Password": "pass4321",
+    "_AllocatedFund": 450.0,
+    "_AccountList": null
+  },
+  {
+    "_CustomerId": 5,
+    "_UserName": "Francois",
+    "_Email": "francis@gmail.com",
+    "_Password": "word1234",
+    "_AllocatedFund": 345.0,
+    "_AccountList": null
+  },
+  {
+    "_CustomerId": 6,
+    "_UserName": "Danielle",
+    "_Email": "d.elle@gmail.com",
+    "_Password": "word5678",
+    "_AllocatedFund": 225.0,
+    "_AccountList": null
+  },
+  {
+    "_CustomerId": 7,
+    "_UserName": "Moana",
+    "_Email": "moana@gmail.com",
+    "_Password": "word3456",
+    "_AllocatedFund": 520.0,
+    "_AccountList": null
+  },
+  {
+    "_CustomerId": 8,
+    "_UserName": "Robert",
+    "_Email": "rob@gmail.com",
+    "_Password": "pass1122",
+    "_AllocatedFund": 275.0,
+    "_AccountList": null
+  },
+  {
+    "_CustomerId": 9,
+    "_UserName": "Kobe",
+    "_Email": "kobe@gmail.com",
+    "_Password": "pass3344",
+    "_AllocatedFund": 300.0,
+    "_AccountList": null
+  },
+  {
+    "_CustomerId": 10,
+    "_UserName": "Jasmine",
+    "_Email": "justmine@gmail.com",
+    "_Password": "pass8899",
+    "_AllocatedFund": 475.0,
+    "_AccountList": null
+  }
+]

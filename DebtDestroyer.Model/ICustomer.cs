@@ -9,7 +9,7 @@ namespace DebtDestroyer.Model
         string _Email { get; set; }
         string _Password { get; set; }
         decimal _AllocatedFund { get; set; }
-        ICollection<Account> _AccountList { get; set; }
+        IEnumerable<IAccount> _AccountList { get; set; }
        
 
     }

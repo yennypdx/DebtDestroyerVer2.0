@@ -1,0 +1,122 @@
+[
+  {
+    "_AccountId": 1,
+    "_CustomerId": 1,
+    "_Name": "Wells Fargo",
+    "_Apr": 0.159,
+    "_Balance": 2000.00,
+    "_MinPay": 25.00,
+    "_Payment": 0.00,
+    "_AvailCredit": 0.0,
+    "_OneTimePay": 0.0,
+    "_NextPayment": 0.0
+  },
+  {
+    "_AccountId": 2,
+    "_CustomerId": 1,
+    "_Name": "Chase Bank ",
+    "_Apr": 0.189,
+    "_Balance": 3000.00,
+    "_MinPay": 27.00,
+    "_Payment": 0.00,
+    "_AvailCredit": 0.0,
+    "_OneTimePay": 0.0,
+    "_NextPayment": 0.0
+  },
+  {
+    "_AccountId": 3,
+    "_CustomerId": 1,
+    "_Name": "Car Loan   ",
+    "_Apr": 0.209,
+    "_Balance": 4000.00,
+    "_MinPay": 125.00,
+    "_Payment": 0.00,
+    "_AvailCredit": 0.0,
+    "_OneTimePay": 0.0,
+    "_NextPayment": 0.0
+  },
+  {
+    "_AccountId": 4,
+    "_CustomerId": 2,
+    "_Name": "Bank of America",
+    "_Apr": 0.229,
+    "_Balance": 1500.00,
+    "_MinPay": 25.00,
+    "_Payment": 0.00,
+    "_AvailCredit": 0.0,
+    "_OneTimePay": 0.0,
+    "_NextPayment": 0.0
+  },
+  {
+    "_AccountId": 5,
+    "_CustomerId": 2,
+    "_Name": "Student Loan1",
+    "_Apr": 0.03,
+    "_Balance": 20000.00,
+    "_MinPay": 225.00,
+    "_Payment": 0.00,
+    "_AvailCredit": 0.0,
+    "_OneTimePay": 0.0,
+    "_NextPayment": 0.0
+  },
+  {
+    "_AccountId": 6,
+    "_CustomerId": 2,
+    "_Name": "Student Loan2",
+    "_Apr": 0.06,
+    "_Balance": 20000.00,
+    "_MinPay": 250.00,
+    "_Payment": 0.00,
+    "_AvailCredit": 0.0,
+    "_OneTimePay": 0.0,
+    "_NextPayment": 0.0
+  },
+  {
+    "_AccountId": 7,
+    "_CustomerId": 3,
+    "_Name": "Zales Credit",
+    "_Apr": 0.299,
+    "_Balance": 2700.00,
+    "_MinPay": 75.00,
+    "_Payment": 0.00,
+    "_AvailCredit": 0.0,
+    "_OneTimePay": 0.0,
+    "_NextPayment": 0.0
+  },
+  {
+    "_AccountId": 8,
+    "_CustomerId": 3,
+    "_Name": "Capital One",
+    "_Apr": 0.139,
+    "_Balance": 1000.00,
+    "_MinPay": 15.00,
+    "_Payment": 0.00,
+    "_AvailCredit": 0.0,
+    "_OneTimePay": 0.0,
+    "_NextPayment": 0.0
+  },
+  {
+    "_AccountId": 9,
+    "_CustomerId": 3,
+    "_Name": "Best Buy",
+    "_Apr": 0.169,
+    "_Balance": 2200.00,
+    "_MinPay": 25.00,
+    "_Payment": 0.00,
+    "_AvailCredit": 0.0,
+    "_OneTimePay": 0.0,
+    "_NextPayment": 0.0
+  },
+  {
+    "_AccountId": 10,
+    "_CustomerId": 3,
+    "_Name": "American Express",
+    "_Apr": 0.199,
+    "_Balance": 3500.00,
+    "_MinPay": 25.00,
+    "_Payment": 0.00,
+    "_AvailCredit": 0.0,
+    "_OneTimePay": 0.0,
+    "_NextPayment": 0.0
+  }
+]

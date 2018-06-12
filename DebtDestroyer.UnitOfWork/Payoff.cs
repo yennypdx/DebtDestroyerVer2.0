@@ -20,6 +20,7 @@ namespace DebtDestroyer.UnitOfWork
             _CustomerId = customer._CustomerId;
             _AllocatedFunds = customer._AllocatedFund;
             _Accounts = customer._AccountList;
+            _UnitOfWork = new UnitOfWork(new CustomerDataService(), new AccountDataService());
         }
 
         public Payoff(int customerId, decimal allocatedFunds, IUnitOfWork unitOfWork)
@@ -39,7 +40,8 @@ namespace DebtDestroyer.UnitOfWork
 
         public IEnumerable<DebtDestroyer.Model.IAccount> GetAccounts()
         {
-            return _UnitOfWork.AccountService.FindAllByCustomerId(_CustomerId);
+            _Accounts = _UnitOfWork.AccountService.FindAllByCustomerId(_CustomerId);
+            return _Accounts;
         }
 
         public void PrioretySort()
@@ -160,6 +162,23 @@ namespace DebtDestroyer.UnitOfWork
                     }
                 }
             }
+            // if paid too much, re-adjust funds
+            if (totalPaid > _AllocatedFunds)
+            {
+                var diff = totalPaid - _AllocatedFunds;
+                foreach (var account in _Accounts)
+                {
+                    if ((account._Payment - account._MinPay) > diff)
+                    {
+                        account._Payment -= diff;
+                        account._Balance += diff;
+                        totalPaid -= diff;
+                        break;
+                    }
+                }
+            }
+
+            
         }
 
         public IList<DebtDestroyer.Model.Payment> Generate()
